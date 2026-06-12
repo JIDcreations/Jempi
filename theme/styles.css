@@ -146,6 +146,7 @@ b, strong { font-weight: 700; }
 }
 .hero h1 { color: var(--cream); }
 .hero .lead { color: var(--cream); opacity: .92; margin-top: 18px; max-width: 580px; }
+.hero__inner .btn { align-self: flex-start; }
 .breadcrumb {
   font-family: var(--label); font-size: 13px; letter-spacing: .16em; text-transform: uppercase;
   color: var(--cream-78); margin-bottom: 16px;
