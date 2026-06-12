@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    @media (max-width: 880px){
+      [data-nav-links]{ display:none !important; }
+      [data-nav-burger]{ display:inline-flex !important; }
+    }
+  </style>
+</helmet>
+<header style="position:fixed;top:0;left:0;right:0;z-index:1000;font-family:'Parastoo','Lora',Georgia,serif;">
+  <sc-if value="{{ promoOpen }}" hint-placeholder-val="{{ true }}">
+    <div style="position:relative;background:#3a1211;color:#fffaf3;display:flex;align-items:center;justify-content:center;padding:9px 44px;font-family:'Lora',serif;font-size:13px;letter-spacing:.04em;text-align:center;">
+      <span style="opacity:.92;">✶&nbsp;&nbsp;Infoavond &lsquo;Verre Reizen 2026&rsquo; — donderdag 26 juni, 19u in ons kantoor.&nbsp;&nbsp;<a href="Jempi Homepage.dc.html#agenda" style="text-decoration:underline;text-underline-offset:3px;font-weight:600;color:#fffaf3;">Schrijf je in</a></span>
+      <button onClick="{{ closePromo }}" aria-label="Sluiten" style="position:absolute;right:18px;top:50%;transform:translateY(-50%);background:none;border:none;color:#fffaf3;font-size:18px;line-height:1;cursor:pointer;opacity:.7;">×</button>
+    </div>
+  </sc-if>
+
+  <nav ref="{{ navRef }}" style="background:transparent;transition:background .4s ease, box-shadow .4s ease;">
+    <div style="max-width:1280px;margin:0 auto;padding:18px clamp(22px,5vw,64px);display:flex;align-items:center;justify-content:space-between;">
+      <a href="Jempi Homepage.dc.html" style="position:relative;display:inline-block;line-height:0;flex:0 0 auto;">
+        <img data-logo-light src="assets/logo-licht.svg" alt="Jempi Travel" style="height:38px;width:auto;display:block;transition:opacity .4s ease;opacity:1;filter:brightness(0) invert(1);">
+        <img data-logo-dark src="assets/logo-choc.svg" alt="Jempi Travel" style="height:38px;width:auto;display:block;position:absolute;top:0;left:0;transition:opacity .4s ease;opacity:0;">
+      </a>
+      <div data-nav-links style="display:flex;align-items:center;gap:clamp(20px,2.6vw,40px);">
+        <a data-navlink data-nav="bestemmingen" href="Bestemmingen.dc.html" style="color:#fffaf3;text-decoration:none;font-family:'Lora',serif;font-size:15.5px;letter-spacing:.01em;transition:color .4s ease;padding-bottom:3px;">Bestemmingen</a>
+        <a data-navlink data-nav="themas" href="Themas.dc.html" style="color:#fffaf3;text-decoration:none;font-family:'Lora',serif;font-size:15.5px;letter-spacing:.01em;transition:color .4s ease;padding-bottom:3px;">Thema&rsquo;s</a>
+        <a data-navlink data-nav="blog" href="Blog.dc.html" style="color:#fffaf3;text-decoration:none;font-family:'Lora',serif;font-size:15.5px;letter-spacing:.01em;transition:color .4s ease;padding-bottom:3px;">Blog</a>
+        <a data-navlink data-nav="over-ons" href="Over ons.dc.html" style="color:#fffaf3;text-decoration:none;font-family:'Lora',serif;font-size:15.5px;letter-spacing:.01em;transition:color .4s ease;padding-bottom:3px;">Over ons</a>
+      </div>
+      <button data-nav-burger onClick="{{ toggleMenu }}" aria-label="Menu" style="display:none;align-items:center;justify-content:center;width:46px;height:46px;border-radius:999px;border:1px solid rgba(255,250,243,.4);background:rgba(58,18,17,.18);cursor:pointer;flex:0 0 auto;">
+        <span data-burger-bar style="display:block;width:20px;height:2px;background:#fffaf3;position:relative;box-shadow:0 6px 0 #fffaf3,0 -6px 0 #fffaf3;"></span>
+      </button>
+    </div>
+
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="background:#fffaf3;border-top:1px solid rgba(58,18,17,.1);box-shadow:0 18px 40px -20px rgba(58,18,17,.4);padding:14px clamp(22px,5vw,64px) 24px;display:flex;flex-direction:column;gap:4px;">
+        <a href="Bestemmingen.dc.html" style="color:#3a1211;text-decoration:none;font-family:'Lora',serif;font-size:18px;padding:13px 0;border-bottom:1px solid rgba(58,18,17,.08);">Bestemmingen</a>
+        <a href="Themas.dc.html" style="color:#3a1211;text-decoration:none;font-family:'Lora',serif;font-size:18px;padding:13px 0;border-bottom:1px solid rgba(58,18,17,.08);">Thema&rsquo;s</a>
+        <a href="Blog.dc.html" style="color:#3a1211;text-decoration:none;font-family:'Lora',serif;font-size:18px;padding:13px 0;border-bottom:1px solid rgba(58,18,17,.08);">Blog</a>
+        <a href="Over ons.dc.html" style="color:#3a1211;text-decoration:none;font-family:'Lora',serif;font-size:18px;padding:13px 0;border-bottom:1px solid rgba(58,18,17,.08);">Over ons</a>
+      </div>
+    </sc-if>
+  </nav>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:120},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;&quot;,&quot;bestemmingen&quot;,&quot;themas&quot;,&quot;blog&quot;,&quot;over-ons&quot;],&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { promoOpen: true, menuOpen: false };
+
+  componentDidMount() {
+    this._onScroll = () => {
+      const y = window.scrollY || window.pageYOffset || 0;
+      const solid = y > 60;
+      const nav = this.navEl;
+      if (!nav) return;
+      nav.style.background = solid ? '#fffaf3' : 'transparent';
+      nav.style.boxShadow = solid ? '0 1px 0 rgba(58,18,17,0.08)' : 'none';
+      const active = this.props.active;
+      nav.querySelectorAll('[data-navlink]').forEach((a) => {
+        const isActive = active && a.getAttribute('data-nav') === active;
+        a.style.color = solid ? '#3a1211' : '#fffaf3';
+        a.style.borderBottom = isActive ? '2px solid #90a4d2' : '2px solid transparent';
+      });
+      const ld = nav.querySelector('[data-logo-dark]');
+      const ll = nav.querySelector('[data-logo-light]');
+      if (ld) ld.style.opacity = solid ? '1' : '0';
+      if (ll) ll.style.opacity = solid ? '0' : '1';
+      const cta = nav.querySelector('[data-navcta]');
+      if (cta) { cta.style.background = solid ? '#3a1211' : '#fffaf3'; cta.style.color = solid ? '#fffaf3' : '#3a1211'; }
+      const burgerBg = nav.querySelector('[data-nav-burger]');
+      if (burgerBg) { burgerBg.style.borderColor = solid ? 'rgba(58,18,17,.25)' : 'rgba(255,250,243,.4)'; }
+      const bar = nav.querySelector('[data-burger-bar]');
+      if (bar) { const c = solid ? '#3a1211' : '#fffaf3'; bar.style.background = c; bar.style.boxShadow = '0 6px 0 ' + c + ',0 -6px 0 ' + c; }
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+  }
+
+  componentDidUpdate() { if (this._onScroll) this._onScroll(); }
+  componentWillUnmount() { if (this._onScroll) window.removeEventListener('scroll', this._onScroll); }
+
+  renderVals() {
+    return {
+      promoOpen: this.state.promoOpen,
+      closePromo: () => this.setState({ promoOpen: false }),
+      menuOpen: this.state.menuOpen,
+      toggleMenu: () => this.setState((s) => ({ menuOpen: !s.menuOpen })),
+      navRef: (el) => { this.navEl = el; },
+    };
+  }
+}
+</script>
+</body>
+</html>

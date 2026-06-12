@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://use.typekit.net/cfq1stf.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Parastoo:wght@400;500;700&display=swap">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#fffaf3;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    ::selection{background:#90a4d2;color:#fffaf3}
+    input::placeholder{color:rgba(58,18,17,.45)}
+    a{color:inherit}
+  </style>
+</helmet>
+
+<div style="font-family:'Parastoo','Lora',Georgia,serif;color:#3a1211;background:#fffaf3;overflow-x:hidden;">
+
+  <!-- ============ SHARED NAV ============ -->
+  <dc-import name="SiteNav" hint-size="100%,80px"></dc-import>
+
+  <!-- ============ HERO ============ -->
+  <section id="top" style="position:relative;height:100svh;min-height:660px;width:100%;overflow:hidden;">
+
+    <!-- HERO A -->
+    <sc-if value="{{ heroA }}" hint-placeholder-val="{{ true }}">
+      <div style="position:absolute;inset:0;">
+        <img src="assets/beach-palm.jpg" alt="Tropisch strand met palmbomen" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 38%;">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(58,18,17,.42) 0%,rgba(58,18,17,.06) 32%,rgba(58,18,17,.10) 60%,rgba(58,18,17,.62) 100%);"></div>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;max-width:1280px;margin:0 auto;padding:0 clamp(22px,5vw,64px);">
+          <div style="max-width:760px;">
+            <p style="font-family:'Lora',serif;font-size:13px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:#fffaf3;opacity:.85;margin-bottom:22px;">Reisbureau met ziel · sinds 1976</p>
+            <h1 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;color:#fffaf3;font-size:clamp(44px,6.4vw,88px);line-height:1.02;letter-spacing:-.015em;text-wrap:balance;">Reizen zonder zorgen, <em style="font-style:italic;">op maat</em> gemaakt.</h1>
+            <p style="font-family:'Parastoo','Lora',serif;font-size:clamp(17px,1.5vw,21px);line-height:1.6;color:#fffaf3;opacity:.92;margin-top:24px;max-width:540px;">Ontdek de wereld met <b style="font-weight:700;">persoonlijk advies</b> en luxe tot in de kleinste details — wij ontzorgen, jij geniet.</p>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- HERO B -->
+    <sc-if value="{{ heroB }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute;inset:0;">
+        <img src="assets/infinity-pool.jpg" alt="Infinity pool met zicht op zee" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;">
+        <div style="position:absolute;inset:0;background:linear-gradient(105deg,rgba(58,18,17,.66) 0%,rgba(58,18,17,.30) 42%,rgba(58,18,17,0) 72%);"></div>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;max-width:1280px;margin:0 auto;padding:0 clamp(22px,5vw,64px) clamp(230px,30vh,320px);">
+          <div style="max-width:680px;">
+            <p style="font-family:'Lora',serif;font-size:13px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:#eedbc2;margin-bottom:20px;">Jouw reisdroom, werkelijkheid</p>
+            <h1 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;color:#fffaf3;font-size:clamp(42px,6vw,82px);line-height:1.03;letter-spacing:-.015em;text-wrap:balance;">Waar wil jij <em style="font-style:italic;">wakker</em> worden?</h1>
+            <p style="font-family:'Parastoo','Lora',serif;font-size:clamp(17px,1.5vw,21px);line-height:1.6;color:#fffaf3;opacity:.92;margin-top:22px;max-width:500px;">Vertel ons je droom. Wij stippelen de reis uit — <b style="font-weight:700;">veilig, vertrouwd en volledig de jouwe</b>.</p>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- SEARCH BAR (shared, overlaid) -->
+    <div style="position:absolute;left:0;right:0;bottom:clamp(34px,7vh,72px);z-index:5;display:flex;justify-content:center;padding:0 clamp(22px,5vw,64px);">
+      <form onSubmit="{{ onSearch }}" style="width:100%;max-width:980px;background:rgba(255,250,243,.94);backdrop-filter:blur(8px);border-radius:18px;box-shadow:0 24px 60px -24px rgba(58,18,17,.5);padding:10px;display:flex;flex-wrap:wrap;align-items:stretch;gap:4px;">
+        <label style="flex:1 1 200px;display:flex;flex-direction:column;gap:3px;padding:12px 18px;cursor:text;">
+          <span style="font-family:'Lora',serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#90a4d2;">Bestemming</span>
+          <input type="text" placeholder="Waar wil je heen?" style="border:none;background:none;outline:none;font-family:'Parastoo','Lora',serif;font-size:16px;color:#3a1211;width:100%;">
+        </label>
+        <div style="width:1px;background:rgba(58,18,17,.12);margin:10px 0;"></div>
+        <label style="flex:1 1 180px;display:flex;flex-direction:column;gap:3px;padding:12px 18px;cursor:pointer;">
+          <span style="font-family:'Lora',serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#90a4d2;">Thema</span>
+          <select style="border:none;background:none;outline:none;font-family:'Parastoo','Lora',serif;font-size:16px;color:#3a1211;width:100%;cursor:pointer;">
+            <option>Alle reizen</option>
+            <option>Boutique Cruises</option>
+            <option>Avontuur &amp; Natuur</option>
+            <option>Strand &amp; Eilanden</option>
+            <option>Wellness &amp; Slow travel</option>
+            <option>Cultuur &amp; Steden</option>
+          </select>
+        </label>
+        <div style="width:1px;background:rgba(58,18,17,.12);margin:10px 0;"></div>
+        <label style="flex:1 1 150px;display:flex;flex-direction:column;gap:3px;padding:12px 18px;cursor:text;">
+          <span style="font-family:'Lora',serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#90a4d2;">Wanneer</span>
+          <input type="text" placeholder="Reisperiode" style="border:none;background:none;outline:none;font-family:'Parastoo','Lora',serif;font-size:16px;color:#3a1211;width:100%;">
+        </label>
+        <button type="submit" style="flex:0 0 auto;align-self:stretch;background:#3a1211;color:#fffaf3;border:none;border-radius:12px;font-family:'Lora',serif;font-weight:600;font-size:15.5px;letter-spacing:.02em;padding:0 32px;margin:4px;cursor:pointer;transition:background .3s ease;display:flex;align-items:center;gap:9px;" style-hover="background:#90a4d2;">Zoek reizen <span style="font-size:18px;">→</span></button>
+      </form>
+    </div>
+
+    <!-- HERO VARIANT SWITCHER -->
+    <div style="position:absolute;top:clamp(96px,13vh,128px);right:clamp(22px,5vw,64px);z-index:6;display:flex;align-items:center;gap:8px;background:rgba(58,18,17,.34);backdrop-filter:blur(6px);border:1px solid rgba(255,250,243,.28);border-radius:999px;padding:5px;">
+      <span style="font-family:'Lora',serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,250,243,.7);padding:0 8px 0 12px;">Hero</span>
+      <button onClick="{{ setHeroA }}" style="{{ swA }}">A</button>
+      <button onClick="{{ setHeroB }}" style="{{ swB }}">B</button>
+    </div>
+  </section>
+
+  <!-- ============ USP STRIP ============ -->
+  <section style="background:#fffaf3;border-bottom:1px solid rgba(58,18,17,.08);">
+    <div data-reveal style="opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);max-width:1280px;margin:0 auto;padding:clamp(34px,4vw,54px) clamp(22px,5vw,64px);display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,52px);">
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <span style="font-family:'pf-marlet-display',Georgia,serif;font-size:34px;line-height:1;color:#90a4d2;">01</span>
+        <p style="font-family:'Parastoo','Lora',serif;font-size:16px;line-height:1.5;color:#3a1211;"><b style="font-weight:700;">Persoonlijk advies</b><br><span style="opacity:.7;">van échte reisexperten</span></p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <span style="font-family:'pf-marlet-display',Georgia,serif;font-size:34px;line-height:1;color:#90a4d2;">02</span>
+        <p style="font-family:'Parastoo','Lora',serif;font-size:16px;line-height:1.5;color:#3a1211;"><b style="font-weight:700;">100% op maat</b><br><span style="opacity:.7;">geen doolhoven, wel vrijheid</span></p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <span style="font-family:'pf-marlet-display',Georgia,serif;font-size:34px;line-height:1;color:#90a4d2;">03</span>
+        <p style="font-family:'Parastoo','Lora',serif;font-size:16px;line-height:1.5;color:#3a1211;"><b style="font-weight:700;">Zorgeloos van A tot Z</b><br><span style="opacity:.7;">wij lossen op vóór het ontstaat</span></p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <span style="font-family:'pf-marlet-display',Georgia,serif;font-size:34px;line-height:1;color:#90a4d2;">04</span>
+        <p style="font-family:'Parastoo','Lora',serif;font-size:16px;line-height:1.5;color:#3a1211;"><b style="font-weight:700;">Ervaren sinds 1976</b><br><span style="opacity:.7;">vakkennis én mensenkennis</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THEMA'S ============ -->
+  <section id="thema" style="background:#fffaf3;padding:clamp(72px,9vw,128px) 0;">
+    <div style="max-width:1280px;margin:0 auto;padding:0 clamp(22px,5vw,64px);">
+      <div data-reveal style="opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:clamp(34px,4vw,56px);">
+        <div style="max-width:620px;">
+          <p style="font-family:'Lora',serif;font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#90a4d2;margin-bottom:16px;">Reizen per thema</p>
+          <h2 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:clamp(32px,4.4vw,56px);line-height:1.03;letter-spacing:-.01em;color:#3a1211;">Kies de reis die bij <em style="font-style:italic;">jou</em> past</h2>
+        </div>
+        <a href="#thema" style="font-family:'Lora',serif;font-size:15.5px;font-weight:600;color:#3a1211;text-decoration:none;border-bottom:1.5px solid #90a4d2;padding-bottom:4px;white-space:nowrap;">Alle thema&rsquo;s &nbsp;→</a>
+      </div>
+
+      <div id="bestemmingen" style="display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(16px,1.8vw,26px);">
+        <a data-reveal href="#thema" style="opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);position:relative;border-radius:18px;overflow:hidden;aspect-ratio:16/12;text-decoration:none;display:block;">
+          <img src="assets/cruise-lake.jpg" alt="Boutique cruise" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.16,1,.3,1);" style-hover="transform:scale(1.06);">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(58,18,17,0) 38%,rgba(58,18,17,.72) 100%);"></div>
+          <div style="position:absolute;left:0;right:0;bottom:0;padding:clamp(22px,2.4vw,34px);">
+            <h3 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:clamp(24px,2.4vw,32px);color:#fffaf3;">Boutique Cruises</h3>
+            <p style="font-family:'Parastoo','Lora',serif;font-size:15.5px;line-height:1.5;color:#fffaf3;opacity:.9;margin-top:8px;max-width:380px;">Vaar in kleine kring langs verborgen kusten en charmante havens.</p>
+          </div>
+        </a>
+        <a data-reveal href="#thema" style="opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.16,1,.3,1) .08s,transform .9s cubic-bezier(.16,1,.3,1) .08s;position:relative;border-radius:18px;overflow:hidden;aspect-ratio:16/12;text-decoration:none;display:block;">
+          <img src="assets/hiking-coast.jpg" alt="Avontuur en natuur" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.16,1,.3,1);" style-hover="transform:scale(1.06);">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(58,18,17,0) 38%,rgba(58,18,17,.72) 100%);"></div>
+          <div style="position:absolute;left:0;right:0;bottom:0;padding:clamp(22px,2.4vw,34px);">
+            <h3 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:clamp(24px,2.4vw,32px);color:#fffaf3;">Avontuur &amp; Natuur</h3>
+            <p style="font-family:'Parastoo','Lora',serif;font-size:15.5px;line-height:1.5;color:#fffaf3;opacity:.9;margin-top:8px;max-width:380px;">Wandel, ontdek en adem op in de mooiste landschappen ter wereld.</p>
+          </div>
+        </a>
+        <a data-reveal href="#thema" style="opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);position:relative;border-radius:18px;overflow:hidden;aspect-ratio:16/12;text-decoration:none;display:block;">
+          <img src="assets/summit.jpg" alt="Bergen en vergezichten" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.16,1,.3,1);" style-hover="transform:scale(1.06);">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(58,18,17,0) 38%,rgba(58,18,17,.72) 100%);"></div>
+          <div style="position:absolute;left:0;right:0;bottom:0;padding:clamp(22px,2.4vw,34px);">
+            <h3 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:clamp(24px,2.4vw,32px);color:#fffaf3;">Bergen &amp; Vergezichten</h3>
+            <p style="font-family:'Parastoo','Lora',serif;font-size:15.5px;line-height:1.5;color:#fffaf3;opacity:.9;margin-top:8px;max-width:380px;">Hoog boven de wolken, waar elk uitzicht je adem doet stokken.</p>
+          </div>
+        </a>
+        <a data-reveal href="#thema" style="opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.16,1,.3,1) .08s,transform .9s cubic-bezier(.16,1,.3,1) .08s;position:relative;border-radius:18px;overflow:hidden;aspect-ratio:16/12;text-decoration:none;display:block;">
+          <img src="assets/chairs-pool.jpeg" alt="Wellness en slow travel" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.16,1,.3,1);" style-hover="transform:scale(1.06);">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(58,18,17,0) 38%,rgba(58,18,17,.72) 100%);"></div>
+          <div style="position:absolute;left:0;right:0;bottom:0;padding:clamp(22px,2.4vw,34px);">
+            <h3 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:clamp(24px,2.4vw,32px);color:#fffaf3;">Wellness &amp; Slow travel</h3>
+            <p style="font-family:'Parastoo','Lora',serif;font-size:15.5px;line-height:1.5;color:#fffaf3;opacity:.9;margin-top:8px;max-width:380px;">Vertraag, ontspan en kom thuis bij jezelf op de meest stille plekken.</p>
+          </div>
+        </a>
+      </div>
+
+      <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);margin-top:clamp(28px,3vw,40px);display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:#eedbc2;border-radius:16px;padding:22px clamp(22px,2.4vw,34px);">
+        <span style="font-family:'Parastoo','Lora',serif;font-size:17px;line-height:1.5;color:#3a1211;">Nog geen bestemming in gedachten? <b style="font-weight:700;">Doe inspiratie op</b> in onze reisverhalen.</span>
+        <a href="#blog" style="margin-left:auto;font-family:'Lora',serif;font-weight:600;font-size:15px;color:#3a1211;text-decoration:none;border-bottom:1.5px solid #90a4d2;padding-bottom:3px;white-space:nowrap;">Naar de blog →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BLOG ============ -->
+  <section id="blog" style="background:#eedbc2;padding:clamp(72px,9vw,128px) 0;">
+    <div style="max-width:1280px;margin:0 auto;padding:0 clamp(22px,5vw,64px);">
+      <div data-reveal style="opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:clamp(34px,4vw,56px);">
+        <div style="max-width:620px;">
+          <p style="font-family:'Lora',serif;font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#90a4d2;margin-bottom:16px;">Reisverhalen &amp; inspiratie</p>
+          <h2 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:clamp(32px,4.4vw,56px);line-height:1.03;letter-spacing:-.01em;color:#3a1211;">Verhalen die doen <em style="font-style:italic;">dromen</em></h2>
+        </div>
+        <a href="#blog" style="font-family:'Lora',serif;font-size:15.5px;font-weight:600;color:#3a1211;text-decoration:none;border-bottom:1.5px solid #90a4d2;padding-bottom:4px;white-space:nowrap;">Alle blogs &nbsp;→</a>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.4vw,34px);">
+        <a data-reveal href="#blog" style="opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);text-decoration:none;display:flex;flex-direction:column;gap:18px;">
+          <div style="border-radius:16px;overflow:hidden;aspect-ratio:4/3;">
+            <img src="assets/coffee-water.jpeg" alt="Koffie boven helder water" style="width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.16,1,.3,1);" style-hover="transform:scale(1.05);">
+          </div>
+          <div>
+            <span style="font-family:'Lora',serif;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#90a4d2;">Slow travel</span>
+            <h3 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:24px;line-height:1.12;color:#3a1211;margin-top:10px;">Het ritueel van trager reizen</h3>
+            <p style="font-family:'Parastoo','Lora',serif;font-size:16px;line-height:1.6;color:rgba(58,18,17,.74);margin-top:10px;">Waarom de mooiste herinneringen ontstaan wanneer je nergens hoeft te zijn…</p>
+          </div>
+        </a>
+        <a data-reveal href="#blog" style="opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.16,1,.3,1) .08s,transform .9s cubic-bezier(.16,1,.3,1) .08s;text-decoration:none;display:flex;flex-direction:column;gap:18px;">
+          <div style="border-radius:16px;overflow:hidden;aspect-ratio:4/3;">
+            <img src="assets/cruise-lake.jpg" alt="Boot op een bergmeer" style="width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.16,1,.3,1);" style-hover="transform:scale(1.05);">
+          </div>
+          <div>
+            <span style="font-family:'Lora',serif;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#90a4d2;">Cruises</span>
+            <h3 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:24px;line-height:1.12;color:#3a1211;margin-top:10px;">5 kustlijnen die je enkel per boot ziet</h3>
+            <p style="font-family:'Parastoo','Lora',serif;font-size:16px;line-height:1.6;color:rgba(58,18,17,.74);margin-top:10px;">Verborgen baaien en dorpjes waar geen weg naartoe leidt — alleen water…</p>
+          </div>
+        </a>
+        <a data-reveal href="#blog" style="opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.16,1,.3,1) .16s,transform .9s cubic-bezier(.16,1,.3,1) .16s;text-decoration:none;display:flex;flex-direction:column;gap:18px;">
+          <div style="border-radius:16px;overflow:hidden;aspect-ratio:4/3;">
+            <img src="assets/hammock.jpg" alt="Lezen in een hangmat" style="width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.16,1,.3,1);" style-hover="transform:scale(1.05);">
+          </div>
+          <div>
+            <span style="font-family:'Lora',serif;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#90a4d2;">Tips</span>
+            <h3 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:24px;line-height:1.12;color:#3a1211;margin-top:10px;">Inpakken als een reisexpert</h3>
+            <p style="font-family:'Parastoo','Lora',serif;font-size:16px;line-height:1.6;color:rgba(58,18,17,.74);margin-top:10px;">De acht dingen die onze adviseurs altijd meenemen — en waarom…</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CADEAUBONNEN ============ -->
+  <section style="background:#fffaf3;padding:clamp(72px,9vw,128px) 0;">
+    <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);max-width:1280px;margin:0 auto;padding:0 clamp(22px,5vw,64px);display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(34px,5vw,80px);align-items:center;">
+      <div>
+        <p style="font-family:'Lora',serif;font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#90a4d2;margin-bottom:16px;">Cadeaubonnen</p>
+        <h2 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:clamp(30px,4vw,50px);line-height:1.05;letter-spacing:-.01em;color:#3a1211;">Geef geen ding. <em style="font-style:italic;">Geef een reis.</em></h2>
+        <p style="font-family:'Parastoo','Lora',serif;font-size:18px;line-height:1.7;color:rgba(58,18,17,.78);margin-top:20px;max-width:480px;">Een Jempi-cadeaubon is het mooiste begin van een nieuw verhaal. <b style="font-weight:700;">Kies zelf het bedrag</b> — wij zorgen voor de rest, van eerste idee tot vertrek.</p>
+        <a href="#footer" style="display:inline-flex;align-items:center;gap:9px;margin-top:30px;background:#3a1211;color:#fffaf3;text-decoration:none;font-family:'Lora',serif;font-weight:600;font-size:15.5px;padding:15px 30px;border-radius:999px;transition:background .3s ease;" style-hover="background:#90a4d2;">Bestel een cadeaubon <span style="font-size:17px;">→</span></a>
+      </div>
+      <div style="position:relative;aspect-ratio:5/4;border-radius:20px;overflow:hidden;box-shadow:0 30px 70px -34px rgba(58,18,17,.5);">
+        <img src="assets/chairs-pool.jpeg" alt="Rustige plek aan zee" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+        <div style="position:absolute;inset:0;background:linear-gradient(140deg,rgba(58,18,17,.12),rgba(58,18,17,.36));"></div>
+        <div style="position:absolute;left:22px;top:22px;right:22px;bottom:22px;border:1px solid rgba(255,250,243,.6);border-radius:14px;display:flex;flex-direction:column;justify-content:space-between;padding:24px;">
+          <img src="assets/logo-licht.svg" alt="Jempi" style="height:34px;width:auto;filter:brightness(0) invert(1);">
+          <div>
+            <p style="font-family:'Lora',serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#fffaf3;opacity:.85;">Cadeaubon</p>
+            <p style="font-family:'pf-marlet-display',Georgia,serif;font-size:clamp(30px,3.4vw,44px);color:#fffaf3;line-height:1;margin-top:6px;">t.w.v. naar keuze</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DUURZAAMHEID ============ -->
+  <section style="background:#3a1211;padding:clamp(72px,9vw,128px) 0;">
+    <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);max-width:1280px;margin:0 auto;padding:0 clamp(22px,5vw,64px);display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(34px,5vw,80px);align-items:center;">
+      <div style="position:relative;aspect-ratio:4/5;border-radius:20px;overflow:hidden;order:1;">
+        <img src="assets/baby-sand.jpg" alt="Kindervoetjes in het zand" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div style="order:2;">
+        <p style="font-family:'Lora',serif;font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#90a4d2;margin-bottom:16px;">Duurzaam reizen</p>
+        <h2 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:clamp(30px,4vw,52px);line-height:1.05;letter-spacing:-.01em;color:#fffaf3;">Mooie reizen, <em style="font-style:italic;">met respect</em></h2>
+        <p style="font-family:'Parastoo','Lora',serif;font-size:18px;line-height:1.7;color:rgba(255,250,243,.82);margin-top:20px;max-width:520px;">We willen de wereld die we zo graag laten ontdekken ook bewaren. Daarom kiezen we voor <b style="font-weight:700;">kleinschalige partners</b>, lokale gidsen en reizen die iets teruggeven aan de plek én de mensen.</p>
+        <a href="#over-ons" style="display:inline-flex;align-items:center;gap:9px;margin-top:30px;background:transparent;color:#fffaf3;text-decoration:none;font-family:'Lora',serif;font-weight:600;font-size:15.5px;padding:14px 30px;border-radius:999px;border:1px solid rgba(255,250,243,.45);transition:background .3s ease,color .3s ease;" style-hover="background:#fffaf3;color:#3a1211;">Onze aanpak <span style="font-size:17px;">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INCENTIVES ============ -->
+  <section style="background:#eedbc2;padding:clamp(64px,8vw,112px) 0;">
+    <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);max-width:1080px;margin:0 auto;padding:0 clamp(22px,5vw,64px);text-align:center;display:flex;flex-direction:column;align-items:center;">
+      <img src="assets/incentives-bruin.png" alt="Jempi Incentives" style="height:clamp(56px,7vw,84px);width:auto;margin-bottom:26px;">
+      <h2 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:clamp(28px,3.6vw,46px);line-height:1.08;letter-spacing:-.01em;color:#3a1211;max-width:720px;">Beloon je team met een reis die <em style="font-style:italic;">verbindt</em></h2>
+      <p style="font-family:'Parastoo','Lora',serif;font-size:18px;line-height:1.7;color:rgba(58,18,17,.78);margin-top:18px;max-width:600px;">Van incentivereizen tot teambuildings en seminaries op bijzondere locaties. Wij organiseren <b style="font-weight:700;">groepsreizen op maat</b> die nog lang blijven nazinderen.</p>
+      <a href="#footer" style="display:inline-flex;align-items:center;gap:9px;margin-top:30px;background:#3a1211;color:#fffaf3;text-decoration:none;font-family:'Lora',serif;font-weight:600;font-size:15.5px;padding:15px 32px;border-radius:999px;transition:background .3s ease;" style-hover="background:#90a4d2;">Vraag een voorstel <span style="font-size:17px;">→</span></a>
+    </div>
+  </section>
+
+  <!-- ============ AGENDA / EVENEMENTEN ============ -->
+  <section id="agenda" style="background:#fffaf3;padding:clamp(72px,9vw,128px) 0;">
+    <div style="max-width:1280px;margin:0 auto;padding:0 clamp(22px,5vw,64px);">
+      <div data-reveal style="opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);margin-bottom:clamp(30px,4vw,52px);">
+        <p style="font-family:'Lora',serif;font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#90a4d2;margin-bottom:16px;">Agenda &amp; evenementen</p>
+        <h2 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:clamp(32px,4.4vw,56px);line-height:1.03;letter-spacing:-.01em;color:#3a1211;">Kom ons <em style="font-style:italic;">ontmoeten</em></h2>
+      </div>
+      <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column;">
+        <a href="#footer" style="display:grid;grid-template-columns:120px 1fr auto;gap:clamp(16px,3vw,40px);align-items:center;padding:26px 8px;border-top:1px solid rgba(58,18,17,.16);text-decoration:none;transition:padding-left .35s ease;" style-hover="padding-left:18px;">
+          <div style="font-family:'pf-marlet-display',Georgia,serif;color:#90a4d2;line-height:1;"><span style="font-size:40px;">26</span><br><span style="font-size:15px;letter-spacing:.1em;text-transform:uppercase;">Jun</span></div>
+          <div><h3 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:clamp(20px,2.2vw,28px);color:#3a1211;">Infoavond — Verre Reizen 2026</h3><p style="font-family:'Parastoo','Lora',serif;font-size:16px;color:rgba(58,18,17,.7);margin-top:5px;">Kantoor Jempi · 19u00 — inclusief hapje &amp; drankje</p></div>
+          <span style="font-family:'Lora',serif;font-weight:600;font-size:15px;color:#3a1211;white-space:nowrap;">Inschrijven →</span>
+        </a>
+        <a href="#footer" style="display:grid;grid-template-columns:120px 1fr auto;gap:clamp(16px,3vw,40px);align-items:center;padding:26px 8px;border-top:1px solid rgba(58,18,17,.16);text-decoration:none;transition:padding-left .35s ease;" style-hover="padding-left:18px;">
+          <div style="font-family:'pf-marlet-display',Georgia,serif;color:#90a4d2;line-height:1;"><span style="font-size:40px;">12</span><br><span style="font-size:15px;letter-spacing:.1em;text-transform:uppercase;">Sep</span></div>
+          <div><h3 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:clamp(20px,2.2vw,28px);color:#3a1211;">Proeverij — Smaken van de Middellandse Zee</h3><p style="font-family:'Parastoo','Lora',serif;font-size:16px;color:rgba(58,18,17,.7);margin-top:5px;">Een avond rond cultuur, keuken &amp; cruisereizen</p></div>
+          <span style="font-family:'Lora',serif;font-weight:600;font-size:15px;color:#3a1211;white-space:nowrap;">Inschrijven →</span>
+        </a>
+        <a href="#footer" style="display:grid;grid-template-columns:120px 1fr auto;gap:clamp(16px,3vw,40px);align-items:center;padding:26px 8px;border-top:1px solid rgba(58,18,17,.16);border-bottom:1px solid rgba(58,18,17,.16);text-decoration:none;transition:padding-left .35s ease;" style-hover="padding-left:18px;">
+          <div style="font-family:'pf-marlet-display',Georgia,serif;color:#90a4d2;line-height:1;"><span style="font-size:40px;">04</span><br><span style="font-size:15px;letter-spacing:.1em;text-transform:uppercase;">Okt</span></div>
+          <div><h3 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:clamp(20px,2.2vw,28px);color:#3a1211;">Reisbeurs — Jempi on Tour</h3><p style="font-family:'Parastoo','Lora',serif;font-size:16px;color:rgba(58,18,17,.7);margin-top:5px;">Ontmoet onze adviseurs &amp; partners op één plek</p></div>
+          <span style="font-family:'Lora',serif;font-weight:600;font-size:15px;color:#3a1211;white-space:nowrap;">Inschrijven →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OVER ONS ============ -->
+  <section id="over-ons" style="background:#eedbc2;padding:clamp(72px,9vw,128px) 0;">
+    <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);max-width:1280px;margin:0 auto;padding:0 clamp(22px,5vw,64px);display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(34px,5vw,80px);align-items:center;">
+      <div>
+        <p style="font-family:'Lora',serif;font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#90a4d2;margin-bottom:16px;">Over Jempi</p>
+        <h2 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:clamp(30px,4vw,52px);line-height:1.05;letter-spacing:-.01em;color:#3a1211;">Ontzorgen, <em style="font-style:italic;">in stijl</em></h2>
+        <p style="font-family:'Parastoo','Lora',serif;font-size:18px;line-height:1.75;color:rgba(58,18,17,.8);margin-top:22px;max-width:520px;">Bij Jempi draait alles om het ontzorgen van de klant. Geen online doolhoven of verborgen gebreken, maar een reiservaring vol <b style="font-weight:700;">charme en luxe</b>, gedragen door authentieke betrokkenheid.</p>
+        <p style="font-family:'Parastoo','Lora',serif;font-size:18px;line-height:1.75;color:rgba(58,18,17,.8);margin-top:16px;max-width:520px;">Onze superkracht? Een perfecte mix van <b style="font-weight:700;">vakkennis en mensenkennis</b> — we lossen problemen op nog voor ze ontstaan.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;">
+          <span style="font-family:'Lora',serif;font-size:14px;color:#3a1211;background:#fffaf3;border-radius:999px;padding:9px 18px;">Zorgeloos</span>
+          <span style="font-family:'Lora',serif;font-size:14px;color:#3a1211;background:#fffaf3;border-radius:999px;padding:9px 18px;">Vrijheid</span>
+          <span style="font-family:'Lora',serif;font-size:14px;color:#3a1211;background:#fffaf3;border-radius:999px;padding:9px 18px;">Op maat</span>
+          <span style="font-family:'Lora',serif;font-size:14px;color:#3a1211;background:#fffaf3;border-radius:999px;padding:9px 18px;">Persoonlijk</span>
+          <span style="font-family:'Lora',serif;font-size:14px;color:#3a1211;background:#fffaf3;border-radius:999px;padding:9px 18px;">Ervaren</span>
+        </div>
+        <a href="#over-ons" style="display:inline-flex;align-items:center;gap:9px;margin-top:30px;font-family:'Lora',serif;font-weight:600;font-size:15.5px;color:#3a1211;text-decoration:none;border-bottom:1.5px solid #90a4d2;padding-bottom:4px;">Leer ons kennen →</a>
+      </div>
+      <div style="position:relative;aspect-ratio:4/5;border-radius:20px;overflow:hidden;box-shadow:0 30px 70px -34px rgba(58,18,17,.5);">
+        <img src="assets/summit.jpg" alt="Samen op reis" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HERHAAL CTA ============ -->
+  <section style="position:relative;padding:clamp(96px,14vw,180px) 0;overflow:hidden;">
+    <img src="assets/hero-suitcase.png" alt="Onderweg naar de reis" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(58,18,17,.5),rgba(58,18,17,.62));"></div>
+    <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1);position:relative;max-width:840px;margin:0 auto;padding:0 clamp(22px,5vw,64px);text-align:center;">
+      <h2 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:clamp(34px,5.2vw,68px);line-height:1.04;letter-spacing:-.015em;color:#fffaf3;text-wrap:balance;">Klaar om te vertrekken?</h2>
+      <p style="font-family:'Parastoo','Lora',serif;font-size:clamp(17px,1.6vw,21px);line-height:1.6;color:#fffaf3;opacity:.92;margin-top:20px;max-width:560px;margin-left:auto;margin-right:auto;">Plan een vrijblijvend gesprek met een van onze reisadviseurs. Wij maken van jouw droom een reis.</p>
+      <a href="#footer" style="display:inline-flex;align-items:center;gap:10px;margin-top:34px;background:#fffaf3;color:#3a1211;text-decoration:none;font-family:'Lora',serif;font-weight:600;font-size:16px;padding:17px 38px;border-radius:999px;transition:background .3s ease,color .3s ease;" style-hover="background:#90a4d2;color:#fffaf3;">Plan je reis <span style="font-size:18px;">→</span></a>
+    </div>
+  </section>
+
+  <!-- ============ SHARED FOOTER ============ -->
+  <dc-import name="SiteFooter" hint-size="100%,640px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { hero: 'A' };
+
+  componentDidMount() {
+    this._revealed = new Set();
+    const reveal = (t) => { t.style.opacity = '1'; t.style.transform = 'none'; this._revealed.add(t); };
+    const els = document.querySelectorAll('[data-reveal]');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((en) => { if (en.isIntersecting) reveal(en.target); });
+      }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
+      els.forEach((el) => io.observe(el));
+    } else {
+      els.forEach(reveal);
+    }
+  }
+
+  componentDidUpdate() {
+    if (this._revealed) this._revealed.forEach((t) => { t.style.opacity = '1'; t.style.transform = 'none'; });
+  }
+
+  renderVals() {
+    const hero = this.state.hero;
+    const swBase = "border:none;cursor:pointer;font-family:'Lora',serif;font-size:13px;font-weight:600;letter-spacing:.04em;width:34px;height:30px;border-radius:999px;transition:background .3s ease,color .3s ease;";
+    const swOn = swBase + "background:#fffaf3;color:#3a1211;";
+    const swOff = swBase + "background:transparent;color:rgba(255,250,243,.8);";
+    return {
+      heroA: hero === 'A',
+      heroB: hero === 'B',
+      setHeroA: () => this.setState({ hero: 'A' }),
+      setHeroB: () => this.setState({ hero: 'B' }),
+      swA: hero === 'A' ? swOn : swOff,
+      swB: hero === 'B' ? swOn : swOff,
+      onSearch: (e) => { e.preventDefault(); window.location.href = 'Bestemmingen.dc.html'; },
+    };
+  }
+}
+</script>
+</body>
+</html>

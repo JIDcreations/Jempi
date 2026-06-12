@@ -1,0 +1,68 @@
+/* Jempi brand sheet tokens.
+   Source: brand/JEMPI_BRANDSHEET.pdf */
+
+:root {
+  --brand-chocolate: #3a1211;
+  --brand-blue: #90a4d2;
+  --brand-coffee: #eedbc2;
+  --brand-white: #fffaf3;
+
+  --choc: var(--brand-chocolate);
+  --blue: var(--brand-blue);
+  --beige: var(--brand-coffee);
+  --cream: var(--brand-white);
+
+  --choc-80: rgb(58 18 17 / 80%);
+  --choc-74: rgb(58 18 17 / 74%);
+  --choc-68: rgb(58 18 17 / 68%);
+  --choc-66: rgb(58 18 17 / 66%);
+  --choc-60: rgb(58 18 17 / 60%);
+  --choc-55: rgb(58 18 17 / 55%);
+  --choc-50: rgb(58 18 17 / 50%);
+  --choc-42: rgb(58 18 17 / 42%);
+  --choc-40: rgb(58 18 17 / 40%);
+  --choc-36: rgb(58 18 17 / 36%);
+  --choc-30: rgb(58 18 17 / 30%);
+  --choc-25: rgb(58 18 17 / 25%);
+  --choc-18: rgb(58 18 17 / 18%);
+  --choc-16: rgb(58 18 17 / 16%);
+  --choc-14: rgb(58 18 17 / 14%);
+  --choc-12: rgb(58 18 17 / 12%);
+  --choc-10: rgb(58 18 17 / 10%);
+  --choc-08: rgb(58 18 17 / 8%);
+  --choc-06: rgb(58 18 17 / 6%);
+  --choc-00: rgb(58 18 17 / 0%);
+
+  --cream-94: rgb(255 250 243 / 94%);
+  --cream-92: rgb(255 250 243 / 92%);
+  --cream-90: rgb(255 250 243 / 90%);
+  --cream-86: rgb(255 250 243 / 86%);
+  --cream-82: rgb(255 250 243 / 82%);
+  --cream-78: rgb(255 250 243 / 78%);
+  --cream-72: rgb(255 250 243 / 72%);
+  --cream-70: rgb(255 250 243 / 70%);
+  --cream-60: rgb(255 250 243 / 60%);
+  --cream-55: rgb(255 250 243 / 55%);
+  --cream-50: rgb(255 250 243 / 50%);
+  --cream-45: rgb(255 250 243 / 45%);
+  --cream-40: rgb(255 250 243 / 40%);
+  --cream-28: rgb(255 250 243 / 28%);
+  --cream-22: rgb(255 250 243 / 22%);
+  --cream-20: rgb(255 250 243 / 20%);
+  --cream-16: rgb(255 250 243 / 16%);
+  --cream-14: rgb(255 250 243 / 14%);
+  --cream-10: rgb(255 250 243 / 10%);
+  --cream-08: rgb(255 250 243 / 8%);
+  --cream-06: rgb(255 250 243 / 6%);
+
+  --blue-50: rgb(144 164 210 / 50%);
+  --blue-18: rgb(144 164 210 / 18%);
+
+  --display: 'pf-marlet-display', Georgia, serif;
+  --serif: 'Parastoo', Georgia, serif;
+  --label: 'Parastoo', Georgia, serif;
+
+  --maxw: 1280px;
+  --pad: clamp(22px, 5vw, 64px);
+  --ease: cubic-bezier(.16, 1, .3, 1);
+}

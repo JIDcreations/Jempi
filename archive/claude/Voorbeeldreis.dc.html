@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://use.typekit.net/cfq1stf.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Parastoo:wght@400;500;700&display=swap">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#fffaf3;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    ::selection{background:#90a4d2;color:#fffaf3}
+    a{color:inherit}
+    [data-anchor]{scroll-margin-top:110px}
+  </style>
+</helmet>
+
+<div style="font-family:'Parastoo','Lora',Georgia,serif;color:#3a1211;background:#fffaf3;overflow-x:hidden;">
+
+  <dc-import name="SiteNav" active="themas" hint-size="100%,80px"></dc-import>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section style="position:relative;height:64vh;min-height:520px;overflow:hidden;">
+    <img src="assets/cruise-lake.jpg" alt="Jubileumcruise Middellandse Zee" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 50%;">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(58,18,17,.5) 0%,rgba(58,18,17,.16) 40%,rgba(58,18,17,.64) 100%);"></div>
+    <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;max-width:1280px;margin:0 auto;padding:0 clamp(22px,5vw,64px) clamp(46px,8vh,84px);">
+      <p style="font-family:'Lora',serif;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,250,243,.78);margin-bottom:16px;"><a href="Jempi Homepage.dc.html" style="text-decoration:none;color:inherit;">Home</a> &nbsp;—&nbsp; <a href="Themas.dc.html" style="text-decoration:none;color:inherit;">Thema&rsquo;s</a> &nbsp;—&nbsp; <a href="ThemaDetail.dc.html" style="text-decoration:none;color:inherit;">Boutique Cruises</a> &nbsp;—&nbsp; Jubileumcruise</p>
+      <span style="font-family:'Lora',serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#eedbc2;margin-bottom:12px;">Voorbeeldreis</span>
+      <h1 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;color:#fffaf3;font-size:clamp(38px,5.6vw,76px);line-height:1.02;letter-spacing:-.015em;max-width:900px;">Jubileumcruise Middellandse Zee</h1>
+      <div style="display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:20px;">
+        <sc-for list="{{ heroMeta }}" as="m" hint-placeholder-count="4">
+          <span style="font-family:'Parastoo','Lora',serif;font-size:15.5px;color:#fffaf3;opacity:.92;display:inline-flex;align-items:center;gap:9px;"><span style="width:5px;height:5px;border-radius:999px;background:#90a4d2;display:inline-block;"></span>{{ m }}</span>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== QUICK-NAV BUTTON ROW (count varies per reis) ===== -->
+  <section style="background:#fffaf3;border-bottom:1px solid rgba(58,18,17,.1);">
+    <div style="max-width:1280px;margin:0 auto;padding:18px clamp(22px,5vw,64px);display:flex;flex-wrap:wrap;align-items:center;gap:10px;">
+      <sc-for list="{{ quickNav }}" as="q" hint-placeholder-count="5">
+        <a href="{{ q.href }}" style="font-family:'Lora',serif;font-size:14.5px;font-weight:600;color:#3a1211;text-decoration:none;background:#eedbc2;padding:11px 22px;border-radius:999px;transition:background .25s ease,color .25s ease;" style-hover="background:#3a1211;color:#fffaf3;">{{ q.label }}</a>
+      </sc-for>
+      <a href="#prijs" style="margin-left:auto;font-family:'Lora',serif;font-size:14.5px;font-weight:600;color:#fffaf3;text-decoration:none;background:#3a1211;padding:11px 26px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;transition:background .25s ease;" style-hover="background:#90a4d2;">Offerte aanvragen <span style="font-size:16px;">→</span></a>
+    </div>
+  </section>
+
+  <!-- ===== OVERZICHT ===== -->
+  <section data-anchor id="overzicht" style="background:#fffaf3;padding:clamp(60px,8vw,112px) 0;">
+    <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);max-width:1280px;margin:0 auto;padding:0 clamp(22px,5vw,64px);display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(34px,5vw,72px);align-items:start;">
+      <div>
+        <p style="font-family:'Lora',serif;font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#90a4d2;margin-bottom:16px;">Overzicht</p>
+        <h2 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:clamp(28px,3.6vw,46px);line-height:1.06;letter-spacing:-.01em;">Vier een mijlpaal op het <em style="font-style:italic;">water</em></h2>
+        <p style="font-family:'Parastoo','Lora',serif;font-size:18px;line-height:1.75;color:rgba(58,18,17,.8);margin-top:20px;">Acht dagen langs de Adriatische kust, aan boord van een klein schip met plaats voor hooguit veertig gasten. We varen van Venetië tot Dubrovnik, leggen aan in havens waar de grote schepen niet komen, en houden onderweg tijd vrij om samen te proosten op wat jullie vieren.</p>
+        <p style="font-family:'Parastoo','Lora',serif;font-size:18px;line-height:1.75;color:rgba(58,18,17,.8);margin-top:16px;">Dit is een <b style="font-weight:700;">voorbeeldreis</b>. Elke dag, elke haven en elk extraatje kan in overleg worden aangepast — van een privédiner op het achterdek tot een verlenging in Venetië.</p>
+      </div>
+      <div style="background:#eedbc2;border-radius:18px;padding:clamp(26px,2.6vw,36px);">
+        <p style="font-family:'Lora',serif;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#90a4d2;margin-bottom:18px;">In het kort</p>
+        <div style="display:flex;flex-direction:column;">
+          <sc-for list="{{ facts }}" as="f" hint-placeholder-count="6">
+            <div style="display:flex;justify-content:space-between;gap:18px;padding:13px 0;border-top:1px solid rgba(58,18,17,.12);">
+              <span style="font-family:'Parastoo','Lora',serif;font-size:15px;color:rgba(58,18,17,.6);">{{ f.k }}</span>
+              <span style="font-family:'Parastoo','Lora',serif;font-size:15px;font-weight:600;text-align:right;">{{ f.v }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ROUTEKAART ===== -->
+  <section data-anchor id="routekaart" style="background:#3a1211;padding:clamp(60px,8vw,112px) 0;">
+    <div data-reveal style="opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);max-width:1280px;margin:0 auto;padding:0 clamp(22px,5vw,64px);display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(34px,5vw,72px);align-items:center;">
+      <div style="position:relative;aspect-ratio:16/11;border-radius:20px;overflow:hidden;">
+        <img src="assets/hiking-coast.jpg" alt="Route langs de Adriatische kust" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div>
+        <p style="font-family:'Lora',serif;font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#90a4d2;margin-bottom:16px;">Routekaart</p>
+        <h2 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:clamp(26px,3.2vw,42px);line-height:1.06;letter-spacing:-.01em;color:#fffaf3;">Van Venetië tot <em style="font-style:italic;">Dubrovnik</em></h2>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;">
+          <sc-for list="{{ havens }}" as="h" hint-placeholder-count="6">
+            <span style="font-family:'Parastoo','Lora',serif;font-size:14.5px;color:#fffaf3;background:rgba(255,250,243,.1);border:1px solid rgba(255,250,243,.22);padding:9px 16px;border-radius:999px;">{{ h }}</span>
+          </sc-for>
+        </div>
+        <p style="font-family:'Parastoo','Lora',serif;font-size:16.5px;line-height:1.7;color:rgba(255,250,243,.8);margin-top:22px;max-width:480px;">De route is indicatief en kan met de seizoenen of jouw wensen mee verschuiven.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DAG PER DAG ===== -->
+  <section data-anchor id="programma" style="background:#fffaf3;padding:clamp(60px,8vw,112px) 0;">
+    <div style="max-width:1280px;margin:0 auto;padding:0 clamp(22px,5vw,64px);">
+      <div data-reveal style="opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);margin-bottom:clamp(34px,4vw,52px);max-width:620px;">
+        <p style="font-family:'Lora',serif;font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#90a4d2;margin-bottom:14px;">Dag per dag</p>
+        <h2 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:clamp(28px,3.6vw,46px);line-height:1.05;letter-spacing:-.01em;">Het programma, <em style="font-style:italic;">dag na dag</em></h2>
+      </div>
+      <div data-reveal style="opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);max-width:860px;">
+        <sc-for list="{{ days }}" as="d" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:118px 1fr;gap:clamp(16px,3vw,40px);padding:26px 0;border-top:1px solid rgba(58,18,17,.14);">
+            <div style="font-family:'pf-marlet-display',Georgia,serif;color:#90a4d2;line-height:1;">
+              <span style="font-size:14px;letter-spacing:.1em;text-transform:uppercase;display:block;color:rgba(58,18,17,.5);">Dag</span>
+              <span style="font-size:40px;">{{ d.n }}</span>
+            </div>
+            <div>
+              <h3 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:clamp(20px,2.2vw,28px);line-height:1.1;">{{ d.title }}</h3>
+              <p style="font-family:'Parastoo','Lora',serif;font-size:16.5px;line-height:1.65;color:rgba(58,18,17,.76);margin-top:8px;max-width:600px;">{{ d.text }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INBEGREPEN ===== -->
+  <section data-anchor id="inbegrepen" style="background:#eedbc2;padding:clamp(60px,8vw,112px) 0;">
+    <div data-reveal style="opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);max-width:1280px;margin:0 auto;padding:0 clamp(22px,5vw,64px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,64px);">
+      <div>
+        <h3 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:clamp(24px,2.6vw,34px);">Inbegrepen</h3>
+        <div style="display:flex;flex-direction:column;margin-top:18px;">
+          <sc-for list="{{ inbegrepen }}" as="i" hint-placeholder-count="5">
+            <p style="font-family:'Parastoo','Lora',serif;font-size:16.5px;line-height:1.5;color:rgba(58,18,17,.82);padding:11px 0;border-top:1px solid rgba(58,18,17,.14);display:flex;gap:12px;"><span style="color:#90a4d2;font-weight:700;">✓</span>{{ i }}</p>
+          </sc-for>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:clamp(24px,2.6vw,34px);">Niet inbegrepen</h3>
+        <div style="display:flex;flex-direction:column;margin-top:18px;">
+          <sc-for list="{{ nietInbegrepen }}" as="i" hint-placeholder-count="4">
+            <p style="font-family:'Parastoo','Lora',serif;font-size:16.5px;line-height:1.5;color:rgba(58,18,17,.6);padding:11px 0;border-top:1px solid rgba(58,18,17,.14);display:flex;gap:12px;"><span style="color:rgba(58,18,17,.4);">—</span>{{ i }}</p>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRAKTISCH ===== -->
+  <section data-anchor id="praktisch" style="background:#fffaf3;padding:clamp(60px,8vw,112px) 0;">
+    <div style="max-width:1280px;margin:0 auto;padding:0 clamp(22px,5vw,64px);">
+      <div data-reveal style="opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);margin-bottom:clamp(30px,4vw,48px);max-width:620px;">
+        <p style="font-family:'Lora',serif;font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#90a4d2;margin-bottom:14px;">Praktisch</p>
+        <h2 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:clamp(28px,3.6vw,46px);line-height:1.05;letter-spacing:-.01em;">Goed om te <em style="font-style:italic;">weten</em></h2>
+      </div>
+      <div data-reveal style="opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2vw,28px);">
+        <sc-for list="{{ praktisch }}" as="p" hint-placeholder-count="6">
+          <div style="border-top:2px solid #3a1211;padding-top:16px;">
+            <h4 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:clamp(18px,1.8vw,22px);">{{ p.k }}</h4>
+            <p style="font-family:'Parastoo','Lora',serif;font-size:15px;line-height:1.55;color:rgba(58,18,17,.72);margin-top:8px;">{{ p.v }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRIJS + OFFERTE ===== -->
+  <section data-anchor id="prijs" style="background:#3a1211;padding:clamp(64px,8vw,116px) 0;">
+    <div data-reveal style="opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);max-width:1280px;margin:0 auto;padding:0 clamp(22px,5vw,64px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,5vw,72px);align-items:center;">
+      <div>
+        <p style="font-family:'Lora',serif;font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#90a4d2;margin-bottom:16px;">Prijsindicatie</p>
+        <div style="display:flex;align-items:baseline;gap:12px;">
+          <span style="font-family:'pf-marlet-display',Georgia,serif;font-size:clamp(40px,6vw,72px);line-height:1;color:#fffaf3;">vanaf € 2.450</span>
+        </div>
+        <p style="font-family:'Parastoo','Lora',serif;font-size:16.5px;line-height:1.65;color:rgba(255,250,243,.72);margin-top:14px;max-width:420px;">per persoon, op basis van een tweepersoonshut. De exacte prijs hangt af van seizoen, hut en extra's — daarom maken we voor jou een persoonlijke offerte.</p>
+      </div>
+      <div style="background:rgba(255,250,243,.06);border:1px solid rgba(255,250,243,.2);border-radius:18px;padding:clamp(28px,3vw,40px);">
+        <h3 style="font-family:'pf-marlet-display',Georgia,serif;font-weight:400;font-size:clamp(24px,2.6vw,34px);color:#fffaf3;">Klaar om dit te vieren?</h3>
+        <p style="font-family:'Parastoo','Lora',serif;font-size:16.5px;line-height:1.65;color:rgba(255,250,243,.8);margin-top:12px;">Laat je gegevens achter, dan stelt een van onze adviseurs deze reis op maat voor je samen.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;">
+          <a href="#footer" style="display:inline-flex;align-items:center;gap:9px;background:#fffaf3;color:#3a1211;text-decoration:none;font-family:'Lora',serif;font-weight:600;font-size:15.5px;padding:15px 30px;border-radius:999px;transition:background .3s ease,color .3s ease;" style-hover="background:#90a4d2;color:#fffaf3;">Offerte aanvragen <span style="font-size:17px;">→</span></a>
+          <a href="tel:+3200000000" style="display:inline-flex;align-items:center;gap:9px;background:transparent;color:#fffaf3;text-decoration:none;font-family:'Lora',serif;font-weight:600;font-size:15.5px;padding:15px 30px;border-radius:999px;border:1px solid rgba(255,250,243,.4);transition:background .3s ease,color .3s ease;" style-hover="background:#fffaf3;color:#3a1211;">Bel een adviseur</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TERUG NAAR THEMA ===== -->
+  <section style="background:#fffaf3;padding:clamp(48px,6vw,84px) 0;">
+    <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);max-width:1280px;margin:0 auto;padding:0 clamp(22px,5vw,64px);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+      <a href="ThemaDetail.dc.html" style="display:inline-flex;align-items:center;gap:9px;font-family:'Lora',serif;font-weight:600;font-size:15.5px;color:#3a1211;text-decoration:none;border-bottom:1.5px solid #90a4d2;padding-bottom:4px;"><span style="font-size:17px;">←</span> Alle Boutique Cruises</a>
+      <a href="Blog.dc.html" style="display:inline-flex;align-items:center;gap:9px;font-family:'Lora',serif;font-weight:600;font-size:15.5px;color:#3a1211;text-decoration:none;border-bottom:1.5px solid #90a4d2;padding-bottom:4px;">Lees over varen op onze blog <span style="font-size:17px;">→</span></a>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,640px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    this._revealed = new Set();
+    const reveal = (t) => { t.style.opacity = '1'; t.style.transform = 'none'; this._revealed.add(t); };
+    const els = document.querySelectorAll('[data-reveal]');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((en) => { if (en.isIntersecting) reveal(en.target); });
+      }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
+      els.forEach((el) => io.observe(el));
+    } else { els.forEach(reveal); }
+  }
+  componentDidUpdate() {
+    if (this._revealed) this._revealed.forEach((t) => { t.style.opacity = '1'; t.style.transform = 'none'; });
+  }
+  renderVals() {
+    return {
+      heroMeta: ['8 dagen', 'Venetië → Dubrovnik', 'Max. 40 gasten', 'Vlaamse begeleiding'],
+      // The quick-nav button count is data-driven — varies per voorbeeldreis.
+      quickNav: [
+        { label: 'Overzicht', href: '#overzicht' },
+        { label: 'Routekaart', href: '#routekaart' },
+        { label: 'Dag per dag', href: '#programma' },
+        { label: 'Inbegrepen', href: '#inbegrepen' },
+        { label: 'Praktisch', href: '#praktisch' },
+        { label: 'Prijs', href: '#prijs' },
+      ],
+      facts: [
+        { k: 'Duur', v: '8 dagen / 7 nachten' },
+        { k: 'Vertrek', v: 'Venetië' },
+        { k: 'Schip', v: 'Boutique jacht, 40 gasten' },
+        { k: 'Reisgezelschap', v: 'Privé of kleine groep' },
+        { k: 'Talen', v: 'Nederlands · Engels' },
+        { k: 'Beste periode', v: 'Mei – september' },
+      ],
+      havens: ['Venetië', 'Rovinj', 'Zadar', 'Split', 'Hvar', 'Korčula', 'Dubrovnik'],
+      days: [
+        { n: '1', title: 'Inschepen in Venetië', text: 'Welkom aan boord met een glas prosecco terwijl de stad langzaam achter je verdwijnt. Een eerste diner op het achterdek.' },
+        { n: '2', title: 'Rovinj, Istrië', text: 'Een Venetiaans havenstadje in Kroatië, met smalle steegjes en een markt vol verse vis. Vrije namiddag of een wandeling met lokale gids.' },
+        { n: '3', title: 'Zadar & de zee-orgel', text: 'Aanleggen in Zadar, waar de zee letterlijk muziek maakt. ’s Avonds varen we verder onder een sterrenhemel.' },
+        { n: '4', title: 'Split — paleis van Diocletianus', text: 'Een halve dag tussen tweeduizend jaar oude muren, gevolgd door rust aan boord en zwemmen in een verborgen baai.' },
+        { n: '5', title: 'Hvar, het zonne-eiland', text: 'Lavendelvelden, wijngaarden en een haven die ’s avonds tot leven komt. Ideale plek voor een feestelijk jubileumdiner.' },
+        { n: '6', title: 'Korčula', text: 'Het rustige, groene eiland waar volgens de legende Marco Polo werd geboren. Tijd om te onthaasten.' },
+        { n: '7', title: 'Dubrovnik', text: 'De parel van de Adriatische Zee. Wandel over de stadsmuren of geniet vanaf het schip van het uitzicht.' },
+        { n: '8', title: 'Ontschepen', text: 'Een laatste ontbijt aan boord, dan transfer naar de luchthaven van Dubrovnik — of een verlenging op maat.' },
+      ],
+      inbegrepen: [
+        'Volpension aan boord (ontbijt, lunch & diner)',
+        'Alle havengelden en taksen',
+        'Nederlandstalige reisbegeleiding',
+        'Dagelijkse excursie of vrije tijd in elke haven',
+        'Welkomstdiner en feestelijk jubileumdiner',
+      ],
+      nietInbegrepen: [
+        'Vluchten van en naar België',
+        'Persoonlijke uitgaven en dranken buiten de maaltijden',
+        'Optionele excursies',
+        'Reis- en annuleringsverzekering',
+      ],
+      praktisch: [
+        { k: 'Vervoer', v: 'Lijnvlucht naar Venetië, terug vanuit Dubrovnik. Transfers inbegrepen op aanvraag.' },
+        { k: 'Documenten', v: 'Geldige identiteitskaart of paspoort volstaat binnen de EU.' },
+        { k: 'Klimaat', v: 'Mediterraan — zacht in mei, warm in juli en augustus.' },
+        { k: 'Aan boord', v: 'Hutten met privébadkamer, zonnedek, lounge en klein wellnesshoekje.' },
+        { k: 'Toegankelijkheid', v: 'Beperkt rolstoeltoegankelijk — vraag ons naar de mogelijkheden.' },
+        { k: 'Annulering', v: 'Flexibele voorwaarden, afhankelijk van het gekozen tarief.' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
