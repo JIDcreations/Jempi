@@ -37,9 +37,8 @@
           <span class="kicker">Cultuur &middot; Egypte</span>
           <h2 class="t-h2" style="font-size:clamp(28px,3.4vw,46px);margin-top:12px;line-height:1.06;">De geheimen van Egypte</h2>
           <p class="prose" style="margin-top:14px;max-width:480px;">Voorbij de piramides ligt een land van stille tempels, trage Nijlavonden en gastvrijheid die je niet verwacht. We namen een kijkje achter de horizon…</p>
-          <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:26px;">
+          <div style="margin-top:26px;">
             <a class="btn btn--primary" href="blog-de-geheimen-van-egypte.html" style="font-size:15px;padding:13px 26px;">Lees het verhaal <span class="arrow" style="font-size:16px;">&rarr;</span></a>
-            <a class="btn btn--ghost" href="voorbeeldreis-jubileumcruise.html" style="font-size:15px;padding:13px 26px;">Bekijk de reis: 5 dagen in Egypte &rarr;</a>
           </div>
         </div>
       </div>
@@ -48,32 +47,43 @@
 
   <!-- BLOG GRID -->
   <section class="bg-cream" style="padding:clamp(8px,1vw,16px) 0 clamp(64px,8vw,110px);">
-    <div class="container reveal">
-      <p class="eyebrow" style="margin-bottom:28px;">Alle verhalen</p>
+    <div class="container reveal" data-filter-root>
+      <div class="flex-between" style="margin-bottom:28px;">
+        <p class="eyebrow">Alle verhalen</p>
+        <div class="filters">
+          <button class="chip is-active" data-filter="alle">Alle</button>
+          <button class="chip" data-filter="slow">Slow travel</button>
+          <button class="chip" data-filter="cruises">Cruises</button>
+          <button class="chip" data-filter="natuur">Natuur</button>
+          <button class="chip" data-filter="strand">Strand</button>
+          <button class="chip" data-filter="tips">Tips</button>
+          <button class="chip" data-filter="familie">Familie</button>
+        </div>
+      </div>
       <div class="grid grid-3">
-        <a class="card" href="blog-de-geheimen-van-egypte.html">
+        <a class="card" href="blog-de-geheimen-van-egypte.html" data-cats="slow">
           <div class="card__img"><img src="assets/foto%20jempi/coffee-water.jpeg" alt="Trager reizen"></div>
-          <div><span class="kicker">Slow travel</span><h3 style="font-size:24px;margin-top:10px;">Het ritueel van trager reizen</h3><p>Waarom de mooiste herinneringen ontstaan wanneer je nergens hoeft te zijn…</p></div>
+          <div><span class="kicker">Slow travel</span><h3 style="font-size:24px;margin-top:10px;">Het ritueel van trager reizen</h3><p>Waarom de mooiste herinneringen ontstaan wanneer je nergens hoeft te zijn…</p><p class="card__meta">2 jun 2026 &middot; 5 min lezen</p></div>
         </a>
-        <a class="card" href="blog-de-geheimen-van-egypte.html">
+        <a class="card" href="blog-de-geheimen-van-egypte.html" data-cats="cruises">
           <div class="card__img"><img src="assets/foto%20jempi/cruise-lake.jpg" alt="Kustlijnen per boot"></div>
-          <div><span class="kicker">Cruises</span><h3 style="font-size:24px;margin-top:10px;">5 kustlijnen die je enkel per boot ziet</h3><p>Verborgen baaien en dorpjes waar geen weg naartoe leidt — alleen water…</p></div>
+          <div><span class="kicker">Cruises</span><h3 style="font-size:24px;margin-top:10px;">5 kustlijnen die je enkel per boot ziet</h3><p>Verborgen baaien en dorpjes waar geen weg naartoe leidt — alleen water…</p><p class="card__meta">21 mei 2026 &middot; 6 min lezen</p></div>
         </a>
-        <a class="card" href="blog-de-geheimen-van-egypte.html">
+        <a class="card" href="blog-de-geheimen-van-egypte.html" data-cats="tips">
           <div class="card__img"><img src="assets/foto%20jempi/hammock.jpg" alt="Inpakken"></div>
-          <div><span class="kicker">Tips</span><h3 style="font-size:24px;margin-top:10px;">Inpakken als een reisexpert</h3><p>De acht dingen die onze adviseurs altijd meenemen — en waarom…</p></div>
+          <div><span class="kicker">Tips</span><h3 style="font-size:24px;margin-top:10px;">Inpakken als een reisexpert</h3><p>De acht dingen die onze adviseurs altijd meenemen — en waarom…</p><p class="card__meta">14 mei 2026 &middot; 4 min lezen</p></div>
         </a>
-        <a class="card" href="blog-de-geheimen-van-egypte.html">
+        <a class="card" href="blog-de-geheimen-van-egypte.html" data-cats="natuur">
           <div class="card__img"><img src="assets/foto%20jempi/hiking-coast.jpg" alt="De fjorden"></div>
-          <div><span class="kicker">Natuur</span><h3 style="font-size:24px;margin-top:10px;">Waarom de fjorden je hart stelen</h3><p>Over stilte, schaal en dat ene moment waarop de tijd lijkt te stoppen…</p></div>
+          <div><span class="kicker">Natuur</span><h3 style="font-size:24px;margin-top:10px;">Waarom de fjorden je hart stelen</h3><p>Over stilte, schaal en dat ene moment waarop de tijd lijkt te stoppen…</p><p class="card__meta">28 apr 2026 &middot; 6 min lezen</p></div>
         </a>
-        <a class="card" href="blog-de-geheimen-van-egypte.html">
+        <a class="card" href="blog-de-geheimen-van-egypte.html" data-cats="strand">
           <div class="card__img"><img src="assets/foto%20jempi/beach-palm.jpg" alt="Onthaasten op een eiland"></div>
-          <div><span class="kicker">Strand</span><h3 style="font-size:24px;margin-top:10px;">Onthaasten op een eiland</h3><p>Hoe je een week zonder agenda inricht — en waarom je het nodig hebt…</p></div>
+          <div><span class="kicker">Strand</span><h3 style="font-size:24px;margin-top:10px;">Onthaasten op een eiland</h3><p>Hoe je een week zonder agenda inricht — en waarom je het nodig hebt…</p><p class="card__meta">9 apr 2026 &middot; 5 min lezen</p></div>
         </a>
-        <a class="card" href="blog-de-geheimen-van-egypte.html">
+        <a class="card" href="blog-de-geheimen-van-egypte.html" data-cats="familie">
           <div class="card__img"><img src="assets/foto%20jempi/baby-sand.jpg" alt="Familie op reis"></div>
-          <div><span class="kicker">Familie</span><h3 style="font-size:24px;margin-top:10px;">Familie op reis: zorgeloos vertrekken</h3><p>Reizen met kinderen hoeft geen logistiek labyrint te zijn. Onze checklist…</p></div>
+          <div><span class="kicker">Familie</span><h3 style="font-size:24px;margin-top:10px;">Familie op reis: zorgeloos vertrekken</h3><p>Reizen met kinderen hoeft geen logistiek labyrint te zijn. Onze checklist…</p><p class="card__meta">25 mrt 2026 &middot; 7 min lezen</p></div>
         </a>
       </div>
     </div>
