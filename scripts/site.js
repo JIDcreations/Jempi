@@ -118,6 +118,12 @@
   }
 
   /* ---- behaviours ------------------------------------------------------- */
+  function setNavHeight() {
+    var wrap = document.querySelector('.nav-wrap');
+    if (!wrap) return;
+    document.documentElement.style.setProperty('--navh', wrap.offsetHeight + 'px');
+  }
+
   function initNav() {
     var nav = document.querySelector('[data-nav]');
     if (!nav) return;
@@ -128,15 +134,21 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
+    setNavHeight();
+    window.addEventListener('resize', setNavHeight, { passive: true });
+
     var burger = document.querySelector('[data-burger]');
     var mobile = document.querySelector('[data-mobile]');
     if (burger && mobile) {
-      burger.addEventListener('click', function () { mobile.classList.toggle('is-open'); });
+      burger.addEventListener('click', function () {
+        mobile.classList.toggle('is-open');
+        setNavHeight();
+      });
     }
     var promoClose = document.querySelector('[data-promo-close]');
     var promo = document.querySelector('[data-promo]');
     if (promoClose && promo) {
-      promoClose.addEventListener('click', function () { promo.style.display = 'none'; });
+      promoClose.addEventListener('click', function () { promo.style.display = 'none'; setNavHeight(); });
     }
   }
 
@@ -178,6 +190,84 @@
     });
   }
 
+  /* Modern multi-facet filter with custom dropdowns (bestemmingen).
+     - one open panel at a time, closes on outside-click / Esc
+     - multi-select within a facet (OR), combined across facets (AND)
+     - live result count, per-facet count badge, reset */
+  function initFacetFilter() {
+    var root = document.querySelector('[data-facet-root]');
+    if (!root) return;
+
+    var facets   = [].slice.call(root.querySelectorAll('.facet'));
+    var cards    = [].slice.call(root.querySelectorAll('[data-cats]'));
+    var countEl  = root.querySelector('[data-count]');
+    var resetEl  = root.querySelector('[data-reset]');
+    var emptyEl  = root.querySelector('[data-empty]');
+
+    function closeAll(except) {
+      facets.forEach(function (f) { if (f !== except) f.classList.remove('is-open'); });
+    }
+
+    function recompute() {
+      // collect selected values per facet
+      var active = facets.map(function (f) {
+        var sel = [].slice.call(f.querySelectorAll('.opt.is-active'))
+          .map(function (o) { return o.getAttribute('data-value'); });
+        var badge = f.querySelector('.count');
+        f.classList.toggle('has-sel', sel.length > 0);
+        if (badge) badge.textContent = sel.length;
+        return sel;
+      });
+      var anySel = active.some(function (s) { return s.length > 0; });
+
+      var shown = 0;
+      cards.forEach(function (c) {
+        var cats = c.getAttribute('data-cats').split(' ');
+        var match = active.every(function (sel) {
+          if (!sel.length) return true;
+          return sel.some(function (v) { return cats.indexOf(v) >= 0; });
+        });
+        c.style.display = match ? '' : 'none';
+        if (match) shown++;
+      });
+
+      if (countEl) countEl.textContent = shown + (shown === 1 ? ' bestemming' : ' bestemmingen');
+      if (emptyEl) emptyEl.classList.toggle('is-shown', shown === 0);
+      if (resetEl) resetEl.classList.toggle('is-shown', anySel);
+    }
+
+    facets.forEach(function (f) {
+      var btn = f.querySelector('.facet__btn');
+      if (btn) btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = f.classList.contains('is-open');
+        closeAll(f);
+        f.classList.toggle('is-open', !open);
+      });
+      f.querySelectorAll('.opt').forEach(function (opt) {
+        opt.addEventListener('click', function () {
+          opt.classList.toggle('is-active');
+          recompute();
+        });
+      });
+    });
+
+    if (resetEl) resetEl.addEventListener('click', function () {
+      root.querySelectorAll('.opt.is-active').forEach(function (o) { o.classList.remove('is-active'); });
+      closeAll(null);
+      recompute();
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.facet')) closeAll(null);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeAll(null);
+    });
+
+    recompute();
+  }
+
   function initNewsletter() {
     var form = document.querySelector('[data-nl]');
     if (!form) return;
@@ -208,6 +298,7 @@
     initNav();
     initReveal();
     initFilter();
+    initFacetFilter();
     initNewsletter();
     initSearch();
   });

@@ -13,8 +13,8 @@
 <body data-page="bestemmingen">
 <div id="site-header"></div>
 
-<main data-filter-root>
-  <!-- HERO -->
+<main data-facet-root>
+  <!-- HERO (CTA bovenaan) -->
   <section class="hero">
     <img class="hero__img" src="assets/foto%20jempi/beach-palm.jpg" alt="Strand met palmen" style="object-position:center 40%;">
     <div class="hero__scrim"></div>
@@ -22,54 +22,168 @@
       <p class="breadcrumb"><a href="index.html">Home</a> &nbsp;—&nbsp; Bestemmingen</p>
       <h1 class="t-hero">Bestemmingen</h1>
       <p class="lead">Van dichtbij tot ver weg. Verklein het aanbod, of laat je gewoon <b>verrassen</b> — wij kennen elke plek persoonlijk.</p>
+      <a class="btn btn--light mt-l" href="#footer">Praat met een adviseur <span class="arrow">&rarr;</span></a>
     </div>
   </section>
 
-  <!-- INTRO + TOP CTA -->
-  <section class="bg-cream" style="padding:clamp(48px,6vw,80px) 0 clamp(20px,3vw,32px);">
-    <div class="container reveal flex-between">
-      <div class="maxw-620">
-        <p class="eyebrow">Waar wil jij heen?</p>
-        <h2 class="t-h2 mt-s">Filter op wat jouw reis <em>bijzonder</em> maakt</h2>
-      </div>
-      <a class="btn btn--primary" href="#footer">Praat met een adviseur <span class="arrow">&rarr;</span></a>
-    </div>
-  </section>
-
-  <!-- FILTERS -->
-  <section class="bg-cream" style="padding:0 0 clamp(20px,3vw,32px);position:sticky;top:0;z-index:50;">
-    <div class="container" style="padding-top:14px;padding-bottom:14px;">
-      <div class="filters">
-        <button class="chip is-active" data-filter="alle">Alle</button>
-        <button class="chip" data-filter="europa">Europa</button>
-        <button class="chip" data-filter="strand">Strand &amp; Zon</button>
-        <button class="chip" data-filter="cruise">Cruise</button>
-        <button class="chip" data-filter="avontuur">Avontuur</button>
-        <button class="chip" data-filter="cultuur">Cultuur</button>
-        <button class="chip" data-filter="wellness">Wellness</button>
-        <button class="chip" data-filter="verre">Verre reizen</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- DESTINATION GRID -->
-  <section class="bg-cream" style="padding:clamp(8px,1vw,16px) 0 clamp(64px,8vw,110px);">
+  <!-- UITGELICHT: featured bestemming met voorbeeldreis -->
+  <section class="bg-cream" style="padding:clamp(48px,6vw,84px) 0 clamp(28px,3vw,40px);">
     <div class="container">
-      <p class="muted" data-count style="font-size:15px;margin-bottom:24px;">8 bestemmingen</p>
-      <div class="grid grid-3 reveal">
-        <a class="card-overlay" href="#" data-cats="europa strand wellness"><img src="assets/foto%20jempi/chairs-pool.jpeg" alt="Cycladen"><div class="card-overlay__scrim"></div><div class="card-overlay__body"><span class="kicker">Griekenland</span><h3>Cycladen</h3><p>Witte dorpjes, diepblauwe zee en eindeloze rust.</p></div></a>
-        <a class="card-overlay" href="#" data-cats="europa cultuur"><img src="assets/foto%20jempi/infinity-pool.jpg" alt="Amalfikust"><div class="card-overlay__scrim"></div><div class="card-overlay__body"><span class="kicker">Italië</span><h3>Amalfikust</h3><p>Citroengaarden, kliffen en dolce far niente.</p></div></a>
-        <a class="card-overlay" href="#" data-cats="cruise avontuur europa"><img src="assets/foto%20jempi/cruise-lake.jpg" alt="Noorse Fjorden"><div class="card-overlay__scrim"></div><div class="card-overlay__body"><span class="kicker">Noorwegen</span><h3>Noorse Fjorden</h3><p>Varen tussen steile wanden en stille watervallen.</p></div></a>
-        <a class="card-overlay" href="#" data-cats="verre avontuur"><img src="assets/foto%20jempi/hiking-coast.jpg" alt="Komodo"><div class="card-overlay__scrim"></div><div class="card-overlay__body"><span class="kicker">Indonesië</span><h3>Komodo</h3><p>Groene heuvels die wegduiken in turquoise baaien.</p></div></a>
-        <a class="card-overlay" href="#" data-cats="verre strand"><img src="assets/foto%20jempi/beach-palm.jpg" alt="Bahama's"><div class="card-overlay__scrim"></div><div class="card-overlay__body"><span class="kicker">Caraïben</span><h3>Bahama&rsquo;s</h3><p>Palmen, poederzand en een traag tropisch ritme.</p></div></a>
-        <a class="card-overlay" href="#" data-cats="verre strand wellness"><img src="assets/foto%20jempi/hammock.jpg" alt="Zanzibar"><div class="card-overlay__scrim"></div><div class="card-overlay__body"><span class="kicker">Tanzania</span><h3>Zanzibar</h3><p>Specerijen, hangmatten en oceaan zover je kijkt.</p></div></a>
-        <a class="card-overlay" href="#" data-cats="verre avontuur"><img src="assets/foto%20jempi/summit.jpg" alt="Yosemite"><div class="card-overlay__scrim"></div><div class="card-overlay__body"><span class="kicker">Verenigde Staten</span><h3>Yosemite</h3><p>Granieten reuzen en uitzichten die je stil maken.</p></div></a>
-        <a class="card-overlay" href="#" data-cats="verre strand wellness"><img src="assets/foto%20jempi/coffee-water.jpeg" alt="Malediven"><div class="card-overlay__scrim"></div><div class="card-overlay__body"><span class="kicker">Indische Oceaan</span><h3>Malediven</h3><p>Glashelder water en stilte op je eigen tempo.</p></div></a>
+      <div class="flex-between reveal" style="margin-bottom:clamp(24px,3vw,38px);">
+        <div class="maxw-620">
+          <p class="eyebrow">In de kijker</p>
+          <h2 class="t-h2 mt-s">De bestemming van het <em>moment</em></h2>
+        </div>
+      </div>
+      <a class="feature reveal" href="bestemming-dalmatische-kust.html">
+        <img src="assets/foto%20jempi/kaboompics_colourful-houses-in-the-town-of-positano-amalfi-cost-italy-12829.jpg" alt="Dalmatische kust">
+        <div class="feature__scrim"></div>
+        <div class="feature__body">
+          <span class="badge"><span class="dot"></span>Voorbeeldreis beschikbaar</span>
+          <p class="kicker" style="margin-top:18px;">Kroatië · Adriatische Zee</p>
+          <h2 class="t-h2">Dalmatische Kust</h2>
+          <p>Oude havensteden, eilandjes vol pijnbomen en heldere baaien — het mooist ontdekt vanaf het water. Inclusief onze populaire jubileumcruise.</p>
+          <span class="feature__cta">
+            <span class="btn btn--light">Ontdek deze bestemming <span class="arrow">&rarr;</span></span>
+            <span class="link-underline" style="color:var(--cream);">Bekijk de voorbeeldreis</span>
+          </span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FILTERS (modern dropdowns, combineerbaar) -->
+  <div class="filterbar">
+    <div class="container filterbar__inner">
+      <span class="filterbar__label">Filter</span>
+      <div class="facets">
+        <div class="facet" data-facet="regio">
+          <button class="facet__btn" type="button" aria-haspopup="true">Regio <span class="count">0</span><span class="chev"></span></button>
+          <div class="facet__panel">
+            <div class="facet__opts">
+              <button class="opt" type="button" data-value="europa">Europa</button>
+              <button class="opt" type="button" data-value="verre">Verre reizen</button>
+            </div>
+          </div>
+        </div>
+        <div class="facet" data-facet="type">
+          <button class="facet__btn" type="button" aria-haspopup="true">Type reis <span class="count">0</span><span class="chev"></span></button>
+          <div class="facet__panel">
+            <div class="facet__opts">
+              <button class="opt" type="button" data-value="cruise">Cruise</button>
+              <button class="opt" type="button" data-value="safari">Safari</button>
+              <button class="opt" type="button" data-value="groepsreis">Groepsreis</button>
+              <button class="opt" type="button" data-value="huwelijksreis">Huwelijksreis</button>
+            </div>
+          </div>
+        </div>
+        <div class="facet" data-facet="sfeer">
+          <button class="facet__btn" type="button" aria-haspopup="true">Sfeer <span class="count">0</span><span class="chev"></span></button>
+          <div class="facet__panel">
+            <div class="facet__opts">
+              <button class="opt" type="button" data-value="strand">Strand &amp; zon</button>
+              <button class="opt" type="button" data-value="avontuur">Avontuur</button>
+              <button class="opt" type="button" data-value="cultuur">Cultuur</button>
+              <button class="opt" type="button" data-value="wellness">Wellness</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="filterbar__right">
+        <button class="filter-reset" type="button" data-reset>Wis filters</button>
+        <span class="filter-count" data-count>9 bestemmingen</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESTINATION GRID (editorial / asymmetrisch) -->
+  <section class="bg-cream" style="padding:clamp(28px,3.5vw,48px) 0 clamp(64px,8vw,110px);">
+    <div class="container">
+      <div class="dest-grid">
+        <a class="dest-card dest-card--tall" href="#" data-cats="europa strand wellness">
+          <img src="assets/foto%20jempi/chairs-pool.jpeg" alt="Cycladen">
+          <div class="dest-card__scrim"></div>
+          <div class="dest-card__body"><span class="kicker">Griekenland</span><h3>Cycladen</h3>
+            <div class="dest-card__meta"><p>Witte dorpjes &middot; beste reisperiode mei–sept</p></div>
+          </div>
+        </a>
+        <a class="dest-card" href="#" data-cats="europa cultuur strand huwelijksreis">
+          <img src="assets/foto%20jempi/infinity-pool.jpg" alt="Amalfikust">
+          <div class="dest-card__scrim"></div>
+          <div class="dest-card__body"><span class="kicker">Italië</span><h3>Amalfikust</h3>
+            <div class="dest-card__meta"><p>Citroengaarden &middot; dolce far niente</p></div>
+          </div>
+        </a>
+        <a class="dest-card" href="bestemming-dalmatische-kust.html" data-cats="europa cruise cultuur strand">
+          <span class="badge"><span class="dot"></span>Voorbeeldreis</span>
+          <img src="assets/foto%20jempi/cruise-lake.jpg" alt="Dalmatische kust">
+          <div class="dest-card__scrim"></div>
+          <div class="dest-card__body"><span class="kicker">Kroatië</span><h3>Dalmatische Kust</h3>
+            <div class="dest-card__meta"><p>Eilandhoppen per boot &middot; mét voorbeeldreis</p></div>
+          </div>
+        </a>
+        <a class="dest-card dest-card--tall" href="#" data-cats="verre avontuur">
+          <img src="assets/foto%20jempi/beach-palm.jpg" alt="Komodo">
+          <div class="dest-card__scrim"></div>
+          <div class="dest-card__body"><span class="kicker">Indonesië</span><h3>Komodo</h3>
+            <div class="dest-card__meta"><p>Groene heuvels &middot; turquoise baaien</p></div>
+          </div>
+        </a>
+
+        <!-- woven-in inspiratie (voor wie nog niet weet waarheen) -->
+        <div class="inspo-card">
+          <span class="kicker">Nog niet beslist?</span>
+          <h3>Laat je verhalen <em>leiden</em></h3>
+          <p>Geen idee waarheen? Onze reisverhalen zijn vaak het beginpunt van de mooiste reis.</p>
+          <a class="link-underline" href="blog.html">Naar de reisverhalen <span class="arrow">&rarr;</span></a>
+        </div>
+
+        <a class="dest-card" href="#" data-cats="verre strand wellness huwelijksreis">
+          <img src="assets/foto%20jempi/hammock.jpg" alt="Zanzibar">
+          <div class="dest-card__scrim"></div>
+          <div class="dest-card__body"><span class="kicker">Tanzania</span><h3>Zanzibar</h3>
+            <div class="dest-card__meta"><p>Specerijen &middot; oceaan zover je kijkt</p></div>
+          </div>
+        </a>
+        <a class="dest-card dest-card--tall" href="#" data-cats="verre safari avontuur groepsreis">
+          <img src="assets/foto%20jempi/hiking-coast.jpg" alt="Serengeti">
+          <div class="dest-card__scrim"></div>
+          <div class="dest-card__body"><span class="kicker">Tanzania</span><h3>Serengeti</h3>
+            <div class="dest-card__meta"><p>Safari &middot; de grote trek juni–okt</p></div>
+          </div>
+        </a>
+        <a class="dest-card" href="#" data-cats="verre strand wellness huwelijksreis">
+          <img src="assets/foto%20jempi/coffee-water.jpeg" alt="Malediven">
+          <div class="dest-card__scrim"></div>
+          <div class="dest-card__body"><span class="kicker">Indische Oceaan</span><h3>Malediven</h3>
+            <div class="dest-card__meta"><p>Glashelder water &middot; stilte op jouw tempo</p></div>
+          </div>
+        </a>
+        <a class="dest-card" href="#" data-cats="verre avontuur">
+          <img src="assets/foto%20jempi/summit.jpg" alt="Yosemite">
+          <div class="dest-card__scrim"></div>
+          <div class="dest-card__body"><span class="kicker">Verenigde Staten</span><h3>Yosemite</h3>
+            <div class="dest-card__meta"><p>Granieten reuzen &middot; eindeloze trails</p></div>
+          </div>
+        </a>
+        <a class="dest-card dest-card--tall" href="#" data-cats="europa cultuur wellness">
+          <img src="assets/foto%20jempi/kaboompics_restaurant-tables-by-the-sea-petunia-flowers-12906.jpg" alt="Toscane">
+          <div class="dest-card__scrim"></div>
+          <div class="dest-card__body"><span class="kicker">Italië</span><h3>Toscane</h3>
+            <div class="dest-card__meta"><p>Wijngaarden &middot; trage tafels in de zon</p></div>
+          </div>
+        </a>
+      </div>
+
+      <!-- empty state -->
+      <div class="dest-empty" data-empty>
+        <p>Geen bestemming gevonden met deze filters.</p>
+        <button class="btn btn--ghost" type="button" data-reset>Wis de filters</button>
       </div>
     </div>
   </section>
 
-  <!-- BLOG INSPIRATION -->
+  <!-- BLOG INSPIRATION (verplicht: link naar blogs) -->
   <section class="bg-beige section--lg">
     <div class="container reveal split">
       <div>
@@ -90,12 +204,12 @@
           <h3 class="t-h3" style="font-size:clamp(24px,2.6vw,34px);line-height:1.08;">Twijfel je over de bestemming?</h3>
           <p style="font-size:17px;line-height:1.6;color:var(--choc-80);margin-top:10px;max-width:520px;">Geef een <b>cadeaubon</b> en laat de bestemming aan hen. Het mooiste begin van een nieuw verhaal.</p>
         </div>
-        <a class="btn btn--primary" href="index.html" style="flex:0 0 auto;">Cadeaubon bestellen <span class="arrow">&rarr;</span></a>
+        <a class="btn btn--primary" href="index.html#cadeaubonnen" style="flex:0 0 auto;">Cadeaubon bestellen <span class="arrow">&rarr;</span></a>
       </div>
     </div>
   </section>
 
-  <!-- BOTTOM CTA -->
+  <!-- BOTTOM CTA (herhaling) -->
   <section class="cta-band">
     <img class="cta-band__img" src="assets/foto%20jempi/infinity-pool.jpg" alt="Plan je reis" style="object-position:center 45%;">
     <div class="cta-band__scrim"></div>
