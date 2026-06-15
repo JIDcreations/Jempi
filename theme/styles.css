@@ -358,6 +358,32 @@ b, strong { font-weight: 700; }
 .fact-block h4 { font-size: clamp(18px, 1.8vw, 22px); }
 .fact-block p { font-size: 15px; line-height: 1.55; color: var(--choc-74); margin-top: 8px; }
 
+/* beste reistijd — month suitability bar (reis detail) */
+.besttime__hl { color: var(--blue); font-weight: 700; }
+.besttime__bar {
+  display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(4px, 0.7vw, 10px);
+  list-style: none; margin-top: clamp(26px, 3vw, 38px);
+}
+.besttime__m { display: flex; flex-direction: column-reverse; align-items: center; gap: 12px; }
+.besttime__m .lbl {
+  font-family: var(--label); font-size: 13px; font-weight: 700; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--choc-55);
+}
+.besttime__m .seg {
+  width: 100%; height: clamp(40px, 5vw, 50px); border-radius: 8px;
+  background: var(--choc-10); transition: transform .3s var(--ease), background .3s var(--ease);
+}
+.besttime__m.is-ok .seg   { background: var(--blue-50); }
+.besttime__m.is-best .seg { background: var(--blue); }
+.besttime__m.is-best .lbl { color: var(--choc); }
+.besttime__m:hover .seg   { transform: translateY(-5px); }
+.besttime__legend { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: clamp(22px, 2.4vw, 30px); }
+.besttime__legend span { display: inline-flex; align-items: center; gap: 9px; font-family: var(--label); font-size: 14px; color: var(--choc-60); }
+.besttime__legend i { width: 16px; height: 16px; border-radius: 5px; display: inline-block; }
+.besttime__legend .l-best { background: var(--blue); }
+.besttime__legend .l-ok   { background: var(--blue-50); }
+.besttime__legend .l-low  { background: var(--choc-10); }
+
 /* meta dot row (hero) */
 .metarow { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 20px; }
 .metarow span { font-size: 15.5px; color: var(--cream); opacity: .92; display: inline-flex; align-items: center; gap: 9px; }
