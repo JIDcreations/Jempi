@@ -23,10 +23,67 @@
     { key: 'over-ons',     label: 'Over ons',     href: 'over-ons.html' }
   ];
 
+  /* Thema's submenu — mirrors the sections on themas.html.
+     Boutique Cruises has its own detail page; the rest deep-link to a
+     section anchor on themas.html (ids added in that file). */
+  var THEME_ITEMS = [
+    { label: 'Boutique Cruises',  desc: 'Varen in kleine kring',         href: 'thema-boutique-cruises.html',     img: 'assets/foto%20jempi/cruise-lake.jpg' },
+    { label: 'Safari & Wildlife', desc: 'Oog in oog met de wildernis',   href: 'themas.html#thema-safari',        img: 'assets/foto%20jempi/summit.jpg' },
+    { label: 'Groepsreizen',      desc: 'Samen op pad, vlot begeleid',   href: 'themas.html#thema-groepsreizen',  img: 'assets/foto%20jempi/chairs-pool.jpeg' },
+    { label: 'Huwelijksreizen',   desc: 'Romantiek op een droomplek',    href: 'themas.html#thema-huwelijksreizen', img: 'assets/foto%20jempi/hammock.jpg' },
+    { label: 'Avontuur & Natuur', desc: 'Reizen die je buiten beleeft',  href: 'themas.html#thema-avontuur',      img: 'assets/foto%20jempi/hiking-coast.jpg' },
+    { label: 'Strand & Eilanden', desc: 'Palmen, poederzand, eilandritme', href: 'themas.html#thema-strand',      img: 'assets/foto%20jempi/beach-palm.jpg' }
+  ];
+
+  function megaHTML() {
+    var items = THEME_ITEMS.map(function (t) {
+      return '' +
+      '<a class="mega__item" href="' + t.href + '">' +
+        '<span class="mega__thumb"><img src="' + t.img + '" alt="" loading="lazy"></span>' +
+        '<span class="mega__text">' +
+          '<span class="mega__name">' + t.label + '</span>' +
+          '<span class="mega__desc">' + t.desc + '</span>' +
+        '</span>' +
+        '<span class="mega__arrow">→</span>' +
+      '</a>';
+    }).join('');
+    return '' +
+    '<div class="mega">' +
+      '<div class="mega__inner">' +
+        '<div class="mega__head">' +
+          '<span class="eyebrow">Reizen per thema</span>' +
+          '<a class="link-underline mega__all" href="themas.html">Alle thema’s <span class="arrow">→</span></a>' +
+        '</div>' +
+        '<div class="mega__grid">' + items + '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
   function navLinks(active, mobile) {
+    if (mobile) {
+      return NAV_ITEMS.map(function (it) {
+        if (it.key === 'themas') {
+          var sub = '<a href="themas.html">Alle thema’s</a>' +
+            THEME_ITEMS.map(function (t) {
+              return '<a href="' + t.href + '">' + t.label + '</a>';
+            }).join('');
+          return '<details class="nav__m-group"' + (it.key === active ? ' open' : '') + '>' +
+            '<summary>' + it.label + '</summary>' +
+            '<div class="nav__m-sub">' + sub + '</div>' +
+          '</details>';
+        }
+        return '<a href="' + it.href + '">' + it.label + '</a>';
+      }).join('');
+    }
     return NAV_ITEMS.map(function (it) {
-      var cls = mobile ? '' : 'nav__link' + (it.key === active ? ' is-active' : '');
-      return '<a class="' + cls + '" href="' + it.href + '">' + it.label + '</a>';
+      var activeCls = it.key === active ? ' is-active' : '';
+      if (it.key === 'themas') {
+        return '<div class="nav__item has-mega">' +
+          '<a class="nav__link' + activeCls + '" href="' + it.href + '">' + it.label + '<span class="nav__caret"></span></a>' +
+          megaHTML() +
+        '</div>';
+      }
+      return '<a class="nav__link' + activeCls + '" href="' + it.href + '">' + it.label + '</a>';
     }).join('');
   }
 
