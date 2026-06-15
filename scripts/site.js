@@ -27,12 +27,12 @@
      Boutique Cruises has its own detail page; the rest deep-link to a
      section anchor on themas.html (ids added in that file). */
   var THEME_ITEMS = [
-    { label: 'Boutique Cruises',  desc: 'Varen in kleine kring',         href: 'thema-boutique-cruises.html',     img: 'assets/foto%20jempi/cruise-lake.jpg' },
-    { label: 'Safari & Wildlife', desc: 'Oog in oog met de wildernis',   href: 'themas.html#thema-safari',        img: 'assets/foto%20jempi/summit.jpg' },
-    { label: 'Groepsreizen',      desc: 'Samen op pad, vlot begeleid',   href: 'themas.html#thema-groepsreizen',  img: 'assets/foto%20jempi/chairs-pool.jpeg' },
-    { label: 'Huwelijksreizen',   desc: 'Romantiek op een droomplek',    href: 'themas.html#thema-huwelijksreizen', img: 'assets/foto%20jempi/hammock.jpg' },
-    { label: 'Avontuur & Natuur', desc: 'Reizen die je buiten beleeft',  href: 'themas.html#thema-avontuur',      img: 'assets/foto%20jempi/hiking-coast.jpg' },
-    { label: 'Strand & Eilanden', desc: 'Palmen, poederzand, eilandritme', href: 'themas.html#thema-strand',      img: 'assets/foto%20jempi/beach-palm.jpg' }
+    { label: 'Boutique Cruises',  desc: 'Varen in kleine kring',         href: 'thema-boutique-cruises.html', img: 'assets/foto%20jempi/cruise-lake.jpg' },
+    { label: 'Safari & Wildlife', desc: 'Oog in oog met de wildernis',   href: 'thema-safari-wildlife.html',  img: 'assets/foto%20jempi/summit.jpg' },
+    { label: 'Groepsreizen',      desc: 'Samen op pad, vlot begeleid',   href: 'thema-groepsreizen.html',     img: 'assets/foto%20jempi/chairs-pool.jpeg' },
+    { label: 'Huwelijksreizen',   desc: 'Romantiek op een droomplek',    href: 'thema-huwelijksreizen.html',  img: 'assets/foto%20jempi/hammock.jpg' },
+    { label: 'Avontuur & Natuur', desc: 'Reizen die je buiten beleeft',  href: 'thema-avontuur-natuur.html',  img: 'assets/foto%20jempi/hiking-coast.jpg' },
+    { label: 'Strand & Eilanden', desc: 'Palmen, poederzand, eilandritme', href: 'thema-strand-eilanden.html', img: 'assets/foto%20jempi/beach-palm.jpg' }
   ];
 
   function megaHTML() {
