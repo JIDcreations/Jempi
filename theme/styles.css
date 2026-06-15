@@ -187,10 +187,23 @@ b, strong { font-weight: 700; }
 }
 .mega__item:hover .mega__arrow { opacity: 1; transform: none; }
 
+/* social icons in the nav (subtle, adapts to nav colour state) */
+.nav__social { display: inline-flex; align-items: center; gap: 14px; padding-left: clamp(14px, 1.6vw, 22px); border-left: 1px solid var(--cream-22); }
+.nav--solid .nav__social { border-left-color: var(--choc-10); }
+.nav__social a { display: inline-flex; color: var(--cream); opacity: .82; transition: color .3s ease, opacity .3s ease; }
+.nav--solid .nav__social a { color: var(--choc); }
+.nav__social a:hover { color: var(--blue); opacity: 1; }
+.nav__social svg { width: 19px; height: 19px; display: block; }
+
 @media (max-width: 880px) {
   .nav__links { display: none; }
   .nav__burger { display: inline-flex; }
 }
+
+/* social row at the bottom of the mobile menu */
+.nav__social--m { padding-left: 0; border-left: 0; border-top: 1px solid var(--choc-08); margin-top: 6px; padding-top: 18px; gap: 20px; }
+.nav__social--m a { color: var(--choc); opacity: 1; }
+.nav__social--m a:hover { color: var(--blue); }
 
 /* ---------- mobile thema's accordion (native <details>) ---------- */
 .nav__m-group { border-bottom: 1px solid var(--choc-08); }
@@ -441,6 +454,15 @@ b, strong { font-weight: 700; }
 .footer__brand { min-width: 240px; }
 .footer__brand img { height: 46px; width: auto; }
 .footer__brand p { font-size: 15.5px; line-height: 1.6; color: var(--cream-70); margin-top: 18px; max-width: 280px; }
+.social { display: flex; gap: 12px; margin-top: 22px; }
+.social a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 42px; height: 42px; border-radius: 999px;
+  border: 1px solid var(--cream-28); color: var(--cream);
+  transition: background .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease);
+}
+.social a:hover { background: var(--cream); color: var(--choc); border-color: var(--cream); }
+.social svg { width: 20px; height: 20px; display: block; }
 .footer__col p.head { font-family: var(--label); font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--blue); margin-bottom: 16px; }
 .footer__col .links { display: flex; flex-direction: column; gap: 11px; font-size: 15.5px; }
 .footer__col .links a, .footer__col .links span { color: var(--cream-82); }

@@ -87,6 +87,13 @@
     }).join('');
   }
 
+  var IG_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" stroke="none"/></svg>';
+  var FB_ICON = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.35l.35-2.73h-2.7V9.53c0-.79.22-1.33 1.35-1.33h1.44V5.76c-.25-.03-1.1-.1-2.1-.1-2.08 0-3.5 1.27-3.5 3.6v2.01H8.3V14h2.35v7h2.85z"/></svg>';
+  function socialIcons() {
+    return '<a href="https://www.instagram.com/jempi.travel/" target="_blank" rel="noopener" aria-label="Instagram">' + IG_ICON + '</a>' +
+           '<a href="https://www.facebook.com/jempi.reizen/" target="_blank" rel="noopener" aria-label="Facebook">' + FB_ICON + '</a>';
+  }
+
   function headerHTML(active) {
     return '' +
     '<div class="nav-wrap">' +
@@ -101,10 +108,14 @@
             '<img class="logo-light" src="assets/logo/jempi/SVG/logo_licht.svg" alt="Jempi Travel" style="filter:brightness(0) invert(1);">' +
             '<img class="logo-dark" src="assets/logo/jempi/SVG/logo_donker.svg" alt="Jempi Travel">' +
           '</a>' +
-          '<div class="nav__links">' + navLinks(active, false) + '</div>' +
+          '<div class="nav__links">' + navLinks(active, false) +
+            '<span class="nav__social">' + socialIcons() + '</span>' +
+          '</div>' +
           '<button class="nav__burger" data-burger aria-label="Menu"><span></span></button>' +
         '</div>' +
-        '<div class="nav__mobile" data-mobile>' + navLinks(active, true) + '</div>' +
+        '<div class="nav__mobile" data-mobile>' + navLinks(active, true) +
+          '<div class="nav__social nav__social--m">' + socialIcons() + '</div>' +
+        '</div>' +
       '</nav>' +
     '</div>';
   }
@@ -128,6 +139,14 @@
           '<div class="footer__brand">' +
             '<img src="assets/logo/jempi/SVG/logo_licht.svg" alt="Jempi Travel" style="filter:brightness(0) invert(1);">' +
             '<p>Reisbureau met ziel sinds 1976. Gelukkige klanten wiens reisdromen werkelijkheid worden — in alle veiligheid en vertrouwen.</p>' +
+            '<div class="social">' +
+              '<a href="https://www.instagram.com/jempi.travel/" target="_blank" rel="noopener" aria-label="Volg Jempi Travel op Instagram">' +
+                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" stroke="none"/></svg>' +
+              '</a>' +
+              '<a href="https://www.facebook.com/jempi.reizen/" target="_blank" rel="noopener" aria-label="Volg Jempi Travel op Facebook">' +
+                '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.35l.35-2.73h-2.7V9.53c0-.79.22-1.33 1.35-1.33h1.44V5.76c-.25-.03-1.1-.1-2.1-.1-2.08 0-3.5 1.27-3.5 3.6v2.01H8.3V14h2.35v7h2.85z"/></svg>' +
+              '</a>' +
+            '</div>' +
           '</div>' +
           '<div class="footer__col">' +
             '<p class="head">Ontdek</p>' +
@@ -160,7 +179,7 @@
         '</div>' +
         '<div class="footer__bottom">' +
           '<span>\u00a9 ' + year + ' Jempi Travel — alle rechten voorbehouden</span>' +
-          '<div class="legal"><a href="#">Privacy</a><a href="#">Algemene voorwaarden</a><a href="#">Instagram</a></div>' +
+          '<div class="legal"><a href="#">Privacy</a><a href="#">Algemene voorwaarden</a><a href="https://www.instagram.com/jempi.travel/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/jempi.reizen/" target="_blank" rel="noopener">Facebook</a></div>' +
         '</div>' +
       '</div>' +
     '</footer>';
