@@ -140,7 +140,7 @@
             '</div>' +
           '</div>' +
           '<div class="footer__col">' +
-            '<p class="head">Jempi</p>' +
+            '<p class="head">Jempi Travel</p>' +
             '<div class="links">' +
               '<a href="over-ons.html">Over ons</a>' +
               '<a href="index.html">Cadeaubonnen</a>' +
