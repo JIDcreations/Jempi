@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maak een afspraak — Jempi Travel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://use.typekit.net/cfq1stf.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Parastoo:wght;500;700&display=swap">
+<link rel="stylesheet" href="theme/styles.css">
+</head>
+<body data-page="afspraak">
+<div id="site-header"></div>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <img class="hero__img" src="assets/foto%20jempi/hammock.jpg" alt="Maak een afspraak met Jempi Travel" style="object-position:center 50%;">
+    <div class="hero__scrim"></div>
+    <div class="hero__inner">
+      <p class="breadcrumb"><a href="index.html">Home</a> &nbsp;—&nbsp; Maak een afspraak</p>
+      <span class="kicker" style="color:var(--beige);margin-bottom:12px;display:block;">Contact</span>
+      <h1 class="t-hero">Maak een <em>afspraak</em></h1>
+      <p class="lead">Je mooiste reis begint met een goed gesprek. Maak vrijblijvend een afspraak met een van onze reisadviseurs — bij ons op kantoor, telefonisch of digitaal.</p>
+    </div>
+  </section>
+
+  <!-- AFSPRAAK + INFO -->
+  <section class="section--lg bg-cream">
+    <div class="container split" style="align-items:start;">
+      <!-- INFO -->
+      <div class="reveal">
+        <p class="eyebrow">Liever meteen contact?</p>
+        <h2 class="t-h2 mt-s">We nemen <em>alle tijd</em> voor jou</h2>
+        <p class="prose mt-m maxw-520">We werken uitsluitend op afspraak. Zo staat er altijd een adviseur voor je klaar, neem je rustig de tijd en hoef je nooit te wachten.</p>
+
+        <a class="btn btn--primary mt-l" href="tel:+3293950606">Bel +32 9 395 06 06 <span class="arrow">&rarr;</span></a>
+
+        <div class="facts" style="margin-top:clamp(28px,3vw,40px);">
+          <div class="facts__row"><span>Telefoon</span><span><a href="tel:+3293950606">+32 9 395 06 06</a></span></div>
+          <div class="facts__row"><span>E-mail</span><span><a href="mailto:lochristi@jempireizen.be">lochristi@jempireizen.be</a></span></div>
+          <div class="facts__row"><span>Adres</span><span>Slagmanstraat 23, 9080 Lochristi</span></div>
+          <div class="facts__row"><span>Open</span><span>Ma–Vr · 10–13u &amp; 14–18u</span></div>
+          <div class="facts__row"><span></span><span>Za · 10–16u · op afspraak</span></div>
+        </div>
+      </div>
+
+      <!-- FORMULIER -->
+      <div class="reveal" style="background:var(--beige);border-radius:20px;padding:clamp(26px,3vw,40px);">
+        <h3 class="t-h3" style="font-size:clamp(22px,2.2vw,28px);">Vraag je afspraak aan</h3>
+        <p class="prose" style="font-size:16px;margin-top:8px;">Laat je gegevens achter en we bevestigen je afspraak zo snel mogelijk.</p>
+        <form class="appt-form" data-contact style="margin-top:24px;">
+          <div class="appt-form__row">
+            <div><label for="naam">Naam</label><input id="naam" name="naam" type="text" required placeholder="Voor- en achternaam"></div>
+            <div><label for="tel">Telefoon</label><input id="tel" name="tel" type="tel" placeholder="Je telefoonnummer"></div>
+          </div>
+          <div><label for="email">E-mail</label><input id="email" name="email" type="email" required placeholder="Je e-mailadres"></div>
+          <div class="appt-form__row">
+            <div><label for="onderwerp">Onderwerp</label>
+              <select id="onderwerp" name="onderwerp">
+                <option>Nieuwe reis bespreken</option>
+                <option>Offerte aanvragen</option>
+                <option>Reisdocumenten afhalen</option>
+                <option>Algemene vraag</option>
+              </select>
+            </div>
+            <div><label for="moment">Voorkeursmoment</label><input id="moment" name="moment" type="text" placeholder="bv. weekdag namiddag"></div>
+          </div>
+          <div><label for="bericht">Bericht</label><textarea id="bericht" name="bericht" placeholder="Vertel ons kort waar je van droomt…"></textarea></div>
+          <button class="btn btn--primary" type="submit">Verstuur aanvraag <span class="arrow">&rarr;</span></button>
+          <p class="muted" style="font-size:13px;">We gebruiken je gegevens enkel om je afspraak te plannen. Geen spam, beloofd.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAAROM OP AFSPRAAK -->
+  <section class="section bg-beige">
+    <div class="container">
+      <div class="reveal maxw-620" style="margin-bottom:clamp(28px,3.5vw,46px);">
+        <p class="eyebrow">Waarom op afspraak?</p>
+        <h2 class="t-h2 mt-s">Persoonlijk, <em>zonder gehaast</em></h2>
+      </div>
+      <div class="grid grid-3 reveal">
+        <div class="fact-block"><h4 class="t-h4">Persoonlijk advies</h4><p>Een adviseur die echt naar je luistert en de tijd neemt voor jouw verhaal.</p></div>
+        <div class="fact-block"><h4 class="t-h4">Geen wachttijd</h4><p>Je komt op het moment dat jou past — niemand anders gaat voor.</p></div>
+        <div class="fact-block"><h4 class="t-h4">Alle rust</h4><p>We bekijken samen op je gemak elke optie, tot je reis helemaal klopt.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="scripts/site.js"></script>
+</body>
+</html>

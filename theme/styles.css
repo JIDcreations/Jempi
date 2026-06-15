@@ -187,6 +187,11 @@ b, strong { font-weight: 700; }
 }
 .mega__item:hover .mega__arrow { opacity: 1; transform: none; }
 
+/* right cluster of the nav: links + social + afspraak CTA + burger */
+.nav__right { display: flex; align-items: center; gap: clamp(14px, 2vw, 26px); }
+.nav__cta { padding: 11px 22px; font-size: 14.5px; white-space: nowrap; }
+@media (max-width: 420px) { .nav__cta { padding: 10px 15px; font-size: 13px; } }
+
 /* social icons in the nav (subtle, adapts to nav colour state) */
 .nav__social { display: inline-flex; align-items: center; gap: 14px; padding-left: clamp(14px, 1.6vw, 22px); border-left: 1px solid var(--cream-22); }
 .nav--solid .nav__social { border-left-color: var(--choc-10); }
@@ -434,6 +439,24 @@ b, strong { font-weight: 700; }
 .callout h3 { color: var(--cream); line-height: 1.1; }
 .callout p { color: var(--cream-82); font-size: 16.5px; line-height: 1.6; margin-top: 10px; }
 @media (max-width: 620px) { .callout { grid-template-columns: 1fr; } }
+
+/* ---------- afspraak / contact form ---------- */
+.appt-form { display: flex; flex-direction: column; gap: 16px; }
+.appt-form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.appt-form label { display: block; font-family: var(--label); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--choc-60); margin-bottom: 7px; }
+.appt-form input, .appt-form select, .appt-form textarea {
+  width: 100%; font-family: var(--serif); font-size: 16px; color: var(--choc);
+  background: var(--cream); border: 1px solid var(--choc-18); border-radius: 12px;
+  padding: 13px 16px; outline: none; transition: border-color .2s ease;
+}
+.appt-form input::placeholder, .appt-form textarea::placeholder { color: var(--choc-40); }
+.appt-form input:focus, .appt-form select:focus, .appt-form textarea:focus { border-color: var(--blue); }
+.appt-form textarea { min-height: 120px; resize: vertical; }
+.appt-form button { align-self: flex-start; margin-top: 4px; }
+@media (max-width: 540px) { .appt-form__row { grid-template-columns: 1fr; } }
+.form-thanks { background: var(--blue-18); border: 1px solid var(--blue-50); border-radius: 16px; padding: 28px 30px; }
+.form-thanks p:first-child { font-family: var(--display); font-size: 24px; color: var(--choc); }
+.form-thanks p:last-child { font-size: 16px; line-height: 1.6; color: var(--choc-80); margin-top: 8px; }
 
 /* ---------- footer ---------- */
 .footer { background: var(--choc); color: var(--cream); padding: clamp(64px, 8vw, 104px) 0 36px; font-family: var(--serif); }

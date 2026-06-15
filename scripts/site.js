@@ -108,10 +108,13 @@
             '<img class="logo-light" src="assets/logo/jempi/SVG/logo_licht.svg" alt="Jempi Travel" style="filter:brightness(0) invert(1);">' +
             '<img class="logo-dark" src="assets/logo/jempi/SVG/logo_donker.svg" alt="Jempi Travel">' +
           '</a>' +
-          '<div class="nav__links">' + navLinks(active, false) +
-            '<span class="nav__social">' + socialIcons() + '</span>' +
+          '<div class="nav__right">' +
+            '<div class="nav__links">' + navLinks(active, false) +
+              '<span class="nav__social">' + socialIcons() + '</span>' +
+            '</div>' +
+            '<a class="btn btn--primary nav__cta" href="afspraak.html">Maak een afspraak</a>' +
+            '<button class="nav__burger" data-burger aria-label="Menu"><span></span></button>' +
           '</div>' +
-          '<button class="nav__burger" data-burger aria-label="Menu"><span></span></button>' +
         '</div>' +
         '<div class="nav__mobile" data-mobile>' + navLinks(active, true) +
           '<div class="nav__social nav__social--m">' + socialIcons() + '</div>' +
@@ -170,10 +173,11 @@
           '<div class="footer__col">' +
             '<p class="head">Contact</p>' +
             '<div class="links">' +
-              '<a href="tel:+3200000000">+32 (0)00 00 00 00</a>' +
-              '<a href="mailto:hallo@jempireizen.be">hallo@jempireizen.be</a>' +
-              '<span>Ma\u2013Vr \u00b7 9u\u201318u</span>' +
-              '<span>Za \u00b7 op afspraak</span>' +
+              '<a href="afspraak.html">Maak een afspraak</a>' +
+              '<a href="tel:+3293950606">+32 9 395 06 06</a>' +
+              '<a href="mailto:lochristi@jempireizen.be">lochristi@jempireizen.be</a>' +
+              '<span>Slagmanstraat 23, 9080 Lochristi</span>' +
+              '<span>Ma\u2013Vr 10\u201318u \u00b7 Za 10\u201316u \u00b7 op afspraak</span>' +
             '</div>' +
           '</div>' +
         '</div>' +
@@ -348,6 +352,18 @@
     });
   }
 
+  function initContact() {
+    var forms = document.querySelectorAll('[data-contact]');
+    forms.forEach(function (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        form.outerHTML =
+          '<div class="form-thanks"><p>Bedankt! ✶</p>' +
+          '<p>We hebben je aanvraag goed ontvangen en nemen snel contact op om je afspraak te bevestigen.</p></div>';
+      });
+    });
+  }
+
   function initSearch() {
     var form = document.querySelector('[data-search-form]');
     if (!form) return;
@@ -369,6 +385,7 @@
     initFilter();
     initFacetFilter();
     initNewsletter();
+    initContact();
     initSearch();
   });
 })();
