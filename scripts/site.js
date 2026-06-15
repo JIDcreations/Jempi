@@ -109,30 +109,21 @@
     '</div>';
   }
 
-  function footerHTML() {
+  function footerHTML(active) {
     var year = new Date().getFullYear();
     return '' +
     '<footer class="footer" id="footer">' +
       '<div class="container">' +
-        '<div class="footer__top">' +
+        (active === 'nieuwsbrief' ? '' : '<div class="footer__top">' +
           '<div>' +
             '<h3>Blijf dromen, <em>ook thuis</em></h3>' +
             '<p>Reisinspiratie, exclusieve aanbiedingen en uitnodigingen — recht in je inbox. Kies wat je wil ontvangen.</p>' +
           '</div>' +
           '<div>' +
-            '<form class="nl-form" data-nl>' +
-              '<div class="nl-row">' +
-                '<input type="email" required placeholder="Jouw e-mailadres">' +
-                '<button type="submit" class="btn btn--light">Inschrijven</button>' +
-              '</div>' +
-              '<div class="nl-checks">' +
-                '<label><input type="checkbox" checked> Jempi Travel — reisinspiratie</label>' +
-                '<label><input type="checkbox"> Jempi Cruises — vaarnieuws</label>' +
-              '</div>' +
-              '<p class="nl-fine">Dubbele opt-in — je ontvangt een bevestigingsmail. Uitschrijven kan altijd.</p>' +
-            '</form>' +
+            '<a class="btn btn--light" href="nieuwsbrief.html">Schrijf je in <span class="arrow">→</span></a>' +
+            '<p class="nl-fine" style="margin-top:16px;">Inschrijven op onze nieuwsbriefpagina — dubbele opt-in, uitschrijven kan altijd.</p>' +
           '</div>' +
-        '</div>' +
+        '</div>') +
         '<div class="footer__cols">' +
           '<div class="footer__brand">' +
             '<img src="assets/logo/jempi/SVG/logo_licht.svg" alt="Jempi Travel" style="filter:brightness(0) invert(1);">' +
@@ -145,6 +136,7 @@
               '<a href="themas.html">Thema\u2019s</a>' +
               '<a href="blog.html">Blog</a>' +
               '<a href="index.html#agenda">Agenda</a>' +
+              '<a href="nieuwsbrief.html">Nieuwsbrief</a>' +
             '</div>' +
           '</div>' +
           '<div class="footer__col">' +
@@ -326,13 +318,14 @@
   }
 
   function initNewsletter() {
-    var form = document.querySelector('[data-nl]');
-    if (!form) return;
+    var forms = document.querySelectorAll('[data-nl]');
+    forms.forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       form.outerHTML =
         '<div class="nl-thanks"><p>Bedankt! \u2736</p>' +
         '<p>Check je inbox om je inschrijving te bevestigen — zo weten we zeker dat jij het bent.</p></div>';
+    });
     });
   }
 
@@ -351,7 +344,7 @@
     var head = document.getElementById('site-header');
     var foot = document.getElementById('site-footer');
     if (head) head.innerHTML = headerHTML(active);
-    if (foot) foot.innerHTML = footerHTML();
+    if (foot) foot.innerHTML = footerHTML(active);
     initNav();
     initReveal();
     initFilter();
