@@ -363,6 +363,26 @@ b, strong { font-weight: 700; }
 .day h3 { line-height: 1.1; }
 .day p { font-size: 16.5px; line-height: 1.65; color: var(--choc-74); margin-top: 8px; max-width: 600px; }
 
+/* dag per dag — uitklapbare dag (accordion, dag 1) */
+.day--exp { border-top: 1px solid var(--choc-14); }
+.day--exp > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 118px 1fr auto; gap: clamp(16px, 3vw, 40px); align-items: start; padding: 26px 0; }
+.day--exp > summary::-webkit-details-marker { display: none; }
+.day--exp > summary:hover .day__head h3 { color: var(--blue); }
+.day--exp .day__head h3 { line-height: 1.1; transition: color .2s var(--ease); }
+.day--exp .day__head p { font-size: 16.5px; line-height: 1.65; color: var(--choc-74); margin-top: 8px; max-width: 600px; }
+.day__toggle { display: inline-block; margin-top: 12px; font-family: var(--serif); font-size: 13.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--blue); }
+.day__toggle-less { display: none; }
+.day--exp[open] .day__toggle-more { display: none; }
+.day--exp[open] .day__toggle-less { display: inline; }
+.day__chev { width: 9px; height: 9px; margin-top: 14px; border-right: 2px solid var(--blue); border-bottom: 2px solid var(--blue); transform: rotate(45deg); transition: transform .3s var(--ease); }
+.day--exp[open] .day__chev { transform: rotate(-135deg) translateY(-2px); }
+.day__detail { margin-left: calc(118px + clamp(16px, 3vw, 40px)); max-width: 620px; padding-bottom: 30px; animation: dayfade .35s var(--ease); }
+.day__detail p { font-size: 16.5px; line-height: 1.65; color: var(--choc-74); margin: 0 0 14px; }
+.day__gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
+.day__gallery img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 14px; display: block; }
+@keyframes dayfade { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+@media (max-width: 640px) { .day--exp > summary { grid-template-columns: 56px 1fr auto; } .day--exp .day__detail { margin-left: 0; } .day__gallery { grid-template-columns: 1fr; } }
+
 /* include / exclude lists */
 .incl { display: flex; flex-direction: column; margin-top: 18px; }
 .incl p { font-size: 16.5px; line-height: 1.5; padding: 11px 0; border-top: 1px solid var(--choc-14); display: flex; gap: 12px; }
