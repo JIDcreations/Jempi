@@ -86,13 +86,13 @@
   </section>
 
   <!-- DAG PER DAG -->
-  <section id="programma" class="bg-cream section--lg">
+  <section id="programma" class="bg-cream section--lg b1ink">
     <div class="container">
       <div class="reveal maxw-620" style="margin-bottom:clamp(34px,4vw,52px);">
         <p class="eyebrow">Dag per dag</p>
         <h2 class="t-h2 mt-s">Het programma, <em>dag na dag</em></h2>
       </div>
-      <div class="reveal" style="max-width:860px;">
+      <div class="reveal dayline" style="max-width:860px;">
         <details class="day--exp">
           <summary>
             <span class="day__num"><small>Dag</small><b>1</b></span>
@@ -250,6 +250,36 @@
 
 <div id="site-footer"></div>
 <script src="scripts/site.js"></script>
-<style>.route-pill{font-family:var(--serif);font-size:14.5px;color:var(--cream);background:var(--cream-10);border:1px solid var(--cream-22);padding:9px 16px;border-radius:999px;}</style>
+<style>.route-pill{font-family:var(--serif);font-size:14.5px;color:var(--cream);background:var(--cream-10);border:1px solid var(--cream-22);padding:9px 16px;border-radius:999px;}
+
+/* === B1-FIX (ALLEEN deze pagina, als voorbeeld voor het team) ===
+   Blauw-op-licht is te licht om vlot te lezen (2.4:1). Oplossing zónder een
+   kleur te wijzigen: tekst op lichte secties wordt chocolade (leesbaar, AA),
+   en het merk-blauw blijft als decoratief accent (streepje / cijfer-ring +
+   route-lijn). Blauw op de DONKERE secties blijft ongewijzigd (haalt daar ruim AA). */
+
+/* overlines op lichte secties: chocolade tekst + blauw streepje als accent */
+.bg-cream .eyebrow, .bg-beige .eyebrow,
+.bg-cream .kicker,  .bg-beige .kicker {
+  color: var(--choc); display: inline-flex; align-items: center; gap: 11px; }
+.bg-cream .eyebrow::before, .bg-beige .eyebrow::before,
+.bg-cream .kicker::before,  .bg-beige .kicker::before {
+  content: ""; width: 30px; height: 2px; background: var(--blue); flex: 0 0 auto; }
+
+/* 'beste reistijd'-highlight: chocolade tekst met blauwe onderlijn als accent */
+.bg-cream .besttime__hl, .bg-beige .besttime__hl {
+  color: var(--choc); border-bottom: 2px solid var(--blue); }
+
+/* vinkjes 'inbegrepen': chocolade (het blauwe icoon haalde maar 2.4:1) */
+.bg-cream .incl--yes .mark, .bg-beige .incl--yes .mark { color: var(--choc); }
+
+/* Dag per dag: cijfers als haltes op een blauwe route-lijn (tijdlijn) */
+.b1ink .dayline { position: relative; }
+.b1ink .dayline::before { content: ""; position: absolute; left: 33px; top: 54px; bottom: 46px; width: 2px; background: var(--blue-50); }
+.b1ink .day__num { position: relative; z-index: 1; width: 68px; height: 68px; border: 2px solid var(--blue); border-radius: 50%; background: var(--cream); display: inline-flex; flex-direction: column; align-items: center; justify-content: center; }
+.b1ink .day__num small { color: var(--choc-60); font-size: 10px; letter-spacing: .12em; }
+.b1ink .day__num b { color: var(--choc); font-size: 24px; line-height: 1; }
+.b1ink .day__toggle { color: var(--choc); }
+.b1ink .day__toggle::before { content: ""; display: inline-block; width: 18px; height: 2px; background: var(--blue); vertical-align: middle; margin-right: 8px; }</style>
 </body>
 </html>
